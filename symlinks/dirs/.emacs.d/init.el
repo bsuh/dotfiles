@@ -88,11 +88,12 @@
    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
    ;; javascript
+   (eval-after-load 'company
+     '(add-to-list 'company-backends 'company-tern))
    (add-hook 'js-mode-hook
              (lambda ()
                (js2-minor-mode)
                (tern-mode)
-               (add-to-list 'company-backends 'company-tern)
                (skewer-mode)
                (flycheck-mode)))
 
@@ -101,6 +102,13 @@
              (lambda ()
                (rainbow-mode)
                (skewer-css-mode)))
+
+   ;; c#
+   (eval-after-load 'company
+     '(add-to-list 'company-backends 'company-omnisharp))
+   (add-hook 'csharp-mode-hook
+             (lambda ()
+               (omnisharp-mode)))
 
    ;; shell path for gui
    (when (memq window-system '(mac ns))
@@ -139,7 +147,7 @@
  '(js2-mode-show-strict-warnings nil)
  '(mac-option-modifier (quote meta))
  '(menu-bar-mode nil)
- '(omnisharp-server-executable-path (quote ~/mybins/OmniSharpServer/OmniSharp\.exe))
+ '(omnisharp-server-executable-path "~/mybins/OmniSharpServer/OmniSharp.exe")
  '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done (quote time))
