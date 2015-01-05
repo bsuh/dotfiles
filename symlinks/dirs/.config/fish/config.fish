@@ -16,6 +16,9 @@ set fish_theme robbyrussell
 
 . /usr/local/etc/autojump.fish
 
+set -gx PATH ~/mybins/ ~/animeget/ $PATH
+set -gx ITERM_24BIT 1
+
 function livestreamer
   command livestreamer -p mpv --http-header "User-Agent=Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A405 Safari/600.1.4" $argv
 end
