@@ -17,7 +17,7 @@ set fish_theme robbyrussell
 . /usr/local/etc/autojump.fish
 
 set -gx PATH ~/mybins/ ~/animeget/ $PATH
-set -gx ITERM_24BIT 1
+set -gx KONSOLE_DBUS_SESSION 1
 set -gx EDITOR emacs
 set -gx VISUAL emacs
 
