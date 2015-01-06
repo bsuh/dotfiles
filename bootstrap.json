@@ -32,7 +32,7 @@
         "elixir",
         "emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "erlang",
-        "ffmpeg --with-openssl --with-faac",
+        "ffmpeg --with-openssl --with-faac --with-rtmpdump",
         "findutils",
         "fish",
         "fsharp",
@@ -47,7 +47,6 @@
         "node",
         "p7zip",
         "rsync",
-        "rtmpdump",
         "rust",
         "shellcheck",
         "subversion",
@@ -57,7 +56,7 @@
         "vim --with-luajit --with-lua",
         "wget",
         "xctool",
-        "youtube-dl"
+        "youtube-dl --with-rtmpdump"
     ],
     "symlinks": {
         "dirs/*": "~",
