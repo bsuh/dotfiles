@@ -4,14 +4,13 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
-(add-to-list 'load-path "~/.emacs.d/lisp/")
-
 (defun install-packages ()
   (interactive)
   (mapc #'(lambda (package)
             (unless (package-installed-p package)
               (package-install package)))
         '(evil                 ; vi plz
+          evil-surround        ; ""
           zenburn-theme        ; pretty colors
           base16-theme         ; ""
           flx-ido              ; fuzzy ido
@@ -134,8 +133,8 @@
  '(evil-want-C-u-scroll t)
  '(flx-ido-mode t)
  '(global-company-mode t)
+ '(global-evil-surround-mode t)
  '(global-flycheck-mode t nil (flycheck))
- '(global-surround-mode t)
  '(golden-ratio-exclude-modes (quote ("neotree-mode")))
  '(golden-ratio-mode t)
  '(ido-everywhere t)
