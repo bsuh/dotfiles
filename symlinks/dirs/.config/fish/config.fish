@@ -29,6 +29,10 @@ function livestreamer
   command livestreamer -p mpv --http-header "User-Agent=Mozilla/5.0 (iPhone; CPU iPhone OS 8_0_2 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12A405 Safari/600.1.4" $argv
 end
 
+function twitch
+  livestreamer "http://www.twitch.tv/"$argv[1] $argv[2..-1]
+end
+
 function peerflix
   command peerflix --mpv --not-on-top $argv
 end
