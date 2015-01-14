@@ -41,7 +41,9 @@ function emetric-update
   for folder in (ls)
     if test -d $folder/.git
       echo $folder
+      git -C $folder stash
       git -C $folder svn rebase
+      git -C $folder stash pop
     end
   end
 end
