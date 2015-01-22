@@ -27,6 +27,7 @@
           exec-path-from-shell ; shell path for gui
           xclip                ; terminal emacs integration with system clipboard
           highlight-symbol     ; highlight current symbol
+          markdown-mode        ; markdown
 
           ;; --- web ---
           js2-mode
@@ -146,6 +147,7 @@
  '(js2-mode-show-parse-errors nil)
  '(js2-mode-show-strict-warnings nil)
  '(mac-option-modifier (quote meta))
+ '(markdown-command "grip --export -")
  '(menu-bar-mode nil)
  '(omnisharp-server-executable-path "~/mybins/OmniSharpServer/OmniSharp.exe")
  '(org-agenda-files (quote ("~/org/todo.org")))
