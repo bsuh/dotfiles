@@ -107,6 +107,7 @@
      '(add-to-list 'company-backends 'company-omnisharp))
    (add-hook 'csharp-mode-hook
              (lambda ()
+               (setq-local c-basic-offset 4)
                (omnisharp-mode)))
 
    ;; shell path for gui
