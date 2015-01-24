@@ -109,6 +109,7 @@
    (add-hook 'csharp-mode-hook
              (lambda ()
                (setq-local c-basic-offset 4)
+               (c-set-style "c#")
                (omnisharp-mode)))
 
    ;; shell path for gui
