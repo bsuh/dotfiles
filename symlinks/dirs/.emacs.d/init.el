@@ -1,3 +1,7 @@
+(eval-when-compile
+  (if (and (= emacs-major-version 24) (= emacs-minor-version 4))
+      (require 'cl)))
+
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
