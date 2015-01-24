@@ -25,12 +25,13 @@
         "aria2",
         "autojump",
         "brew-cask",
+        "chopsv1/term24/tmux",
         "cmake",
         "coreutils",
         "ctags",
         "curl",
         "elixir",
-        "emacs-mac --icon-modern --with-imagemagick --with-xml2",
+        "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "erlang",
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
         "findutils",
@@ -63,6 +64,7 @@
     },
     "taps": [
         "caskroom/cask",
+        "chopsv1/term24",
         "homebrew/dupes",
         "mpv-player/mpv",
         "railwaycat/emacsmacport"
