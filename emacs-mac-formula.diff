@@ -1,0 +1,16 @@
+diff --git a/Formula/emacs-mac.rb b/Formula/emacs-mac.rb
+index e233e02..00b8ebd 100644
+--- a/Formula/emacs-mac.rb
++++ b/Formula/emacs-mac.rb
+@@ -55,6 +55,11 @@ class EmacsMac < Formula
+     end
+   end
+ 
++  patch do
++      url "https://gist.githubusercontent.com/choppsv1/36aacdd696d505566088/raw/0d96a6c56b807aff0814eda25493d6247311f3b4/emacs-24.4-24bit.diff"
++      sha1 "34dc7eb437bd35d1c032841c51da960f1e0fdaad"
++  end
++
+   def install
+     args = [
+       "--prefix=#{prefix}",

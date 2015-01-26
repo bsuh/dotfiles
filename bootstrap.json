@@ -1,4 +1,7 @@
 {
+    "before-scripts": [
+        "./patch-emacs.sh"
+    ],
     "casks": [
         "appcleaner",
         "ccleaner",
