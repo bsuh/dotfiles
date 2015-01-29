@@ -14,7 +14,7 @@ set fish_theme robbyrussell
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
 
-. /usr/local/etc/autojump.fish
+[ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
 set -gx PATH ~/mybins/ ~/animeget/ $PATH
 set -gx KONSOLE_DBUS_SESSION 1
