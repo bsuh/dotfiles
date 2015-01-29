@@ -41,6 +41,7 @@
         "rust",
         "shellcheck",
         "subversion",
+        "tidy --HEAD",
         "unrar",
         "vim --with-luajit --with-lua",
         "wget",

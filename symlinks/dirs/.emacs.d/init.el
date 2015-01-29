@@ -90,6 +90,8 @@
    ;; html
    (add-to-list 'auto-mode-alist '("\\.cshtml?\\'" . web-mode))
    (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+   (eval-after-load 'flycheck
+     '(put 'html-tidy 'flycheck-modes (append '(web-mode) (get 'html-tidy 'flycheck-modes))))
 
    ;; javascript
    (eval-after-load 'company
