@@ -154,6 +154,7 @@
  '(js2-mode-show-parse-errors nil)
  '(js2-mode-show-strict-warnings nil)
  '(mac-option-modifier (quote meta))
+ '(magit-use-overlays nil)
  '(markdown-command "grip --export -")
  '(menu-bar-mode nil)
  '(omnisharp-server-executable-path "~/mybins/OmniSharpServer/OmniSharp.exe")
