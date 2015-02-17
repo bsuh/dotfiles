@@ -27,7 +27,7 @@
         "aria2",
         "autojump",
         "brew-cask",
-        "chopsv1/term24/tmux",
+        "choppsv1/term24/tmux",
         "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
         "fish",
@@ -55,7 +55,7 @@
     },
     "taps": [
         "caskroom/cask",
-        "chopsv1/term24",
+        "choppsv1/term24",
         "homebrew/dupes",
         "mpv-player/mpv",
         "railwaycat/emacsmacport"
