@@ -20,8 +20,8 @@
         "virtualbox",
         "vlc",
         "vmware-fusion",
-        "wireshark",
-        "xquartz"
+        "xquartz",
+        "wireshark"
     ],
     "formulas": [
         "aria2",
