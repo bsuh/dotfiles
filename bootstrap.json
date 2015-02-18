@@ -42,6 +42,7 @@
         "rust",
         "shellcheck",
         "subversion",
+        "the_silver_searcher",
         "tidy --HEAD",
         "unrar",
         "vim --with-luajit --with-lua",

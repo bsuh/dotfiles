@@ -32,6 +32,7 @@
           xclip                ; terminal emacs integration with system clipboard
           highlight-symbol     ; highlight current symbol
           markdown-mode        ; markdown
+          ag                   ; faster grep
 
           ;; --- web ---
           js2-mode
