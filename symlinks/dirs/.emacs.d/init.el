@@ -134,6 +134,7 @@
  '(c-basic-offset 2)
  '(c-default-style "linux")
  '(column-number-mode t)
+ '(company-dabbrev-downcase nil)
  '(company-idle-delay 0)
  '(company-minimum-prefix-length 2)
  '(custom-enabled-themes (quote (zenburn)))
