@@ -140,7 +140,7 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("cbef37d6304f12fb789f5d80c2b75ea01465e41073c30341dc84c6c0d1eb611d" "9dae95cdbed1505d45322ef8b5aa90ccb6cb59e0ff26fef0b8f411dfc416c552" "0f6667c7dd4d19cf99cde5feeb6f0fe6abebc229282b5e21d1739b1fe14b5342" "3b819bba57a676edf6e4881bd38c777f96d1aa3b3b5bc21d8266fa5b0d0f1ebf" default)))
+    ("3c093ea152d7185cc78b61b05e52648c6d2fb0d8579c2119d775630fa459e0be" default)))
  '(evil-want-C-u-scroll t)
  '(flx-ido-mode t)
  '(global-company-mode t)
