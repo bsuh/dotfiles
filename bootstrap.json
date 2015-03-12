@@ -56,7 +56,8 @@
     "symlinks": {
         "dirs/*": "~",
         "dirs/.*": "~",
-        "git/.*": "~"
+        "git/.*": "~",
+        "tmux/.*": "~"
     },
     "taps": [
         "caskroom/cask",
