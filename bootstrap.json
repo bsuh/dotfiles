@@ -1,4 +1,8 @@
 {
+    "after-scripts": [
+        "./pip.sh",
+        "./npm.sh"
+    ],
     "before-scripts": [
         "./patch-emacs.sh"
     ],
