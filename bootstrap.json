@@ -45,6 +45,7 @@
         "ncdu",
         "node",
         "p7zip",
+        "python",
         "python3",
         "rust",
         "shellcheck",
