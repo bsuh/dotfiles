@@ -99,7 +99,7 @@
  '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("3c093ea152d7185cc78b61b05e52648c6d2fb0d8579c2119d775630fa459e0be" default)))
+    ("7c89d1df5a1dd624983f6d107aced89a4b3d787b20997e5c6cff30cc1ba1b55d" default)))
  '(evil-want-C-u-scroll t)
  '(flx-ido-mode t)
  '(global-company-mode t)
