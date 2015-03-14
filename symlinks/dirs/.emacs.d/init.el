@@ -2,55 +2,14 @@
   (if (and (= emacs-major-version 24) (= emacs-minor-version 4))
       (require 'cl)))
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
-(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-(package-initialize)
-
-(defun install-packages ()
-  (interactive)
-  (mapc #'(lambda (package)
-            (unless (package-installed-p package)
-              (package-install package)))
-        '(evil                 ; vi plz
-          evil-surround        ; ""
-          zenburn-theme        ; pretty colors
-          base16-theme         ; ""
-          flx-ido              ; fuzzy ido
-          smex                 ; better M-x
-          helm-projectile      ; project search for file
-          helm-swoop           ; search buffers
-          magit                ; git
-          flycheck             ; squiggly warnings
-          company              ; much autocomplete
-          golden-ratio         ; auto-resizing windows
-          ace-jump-mode        ; faster search for characters
-          org-plus-contrib     ; org-mode
-          neotree              ; file browser
-          exec-path-from-shell ; shell path for gui
-          xclip                ; terminal emacs integration with system clipboard
-          highlight-symbol     ; highlight current symbol
-          markdown-mode        ; markdown
-          ag                   ; faster grep
-
-          ;; --- web ---
-          js2-mode
-          company-tern
-          skewer-mode
-          web-mode
-          csharp-mode
-          rainbow-mode         ; show colors
-
-          ;; c#
-          omnisharp
-          )))
+(require 'cask "/usr/local/share/emacs/site-lisp/cask.el")
+(cask-initialize)
+(require 'pallet)
+(pallet-mode t)
 
 (add-hook
  'after-init-hook
  (lambda ()
-   (install-packages)
-
    ;; window movement shortcuts
    (global-set-key (kbd "C-h")  'windmove-left)
    (global-set-key (kbd "C-l") 'windmove-right)

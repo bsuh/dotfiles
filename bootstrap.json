@@ -1,5 +1,6 @@
 {
     "after-scripts": [
+        "./emacs-packages.sh",
         "./pip.sh",
         "./npm.sh"
     ],
@@ -32,6 +33,7 @@
         "aria2",
         "autojump",
         "brew-cask",
+        "cask",
         "choppsv1/term24/tmux",
         "docker",
         "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
