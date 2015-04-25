@@ -2,6 +2,7 @@
 
 from bs4 import BeautifulSoup
 import calendar
+from colorama import init, Fore
 import dateutil.parser
 import os
 import os.path
@@ -10,6 +11,7 @@ import sys
 import time
 
 if __name__ == '__main__':
+    init()
     query = sys.argv[1]
     r = requests.get('http://www.nyaa.se/', params={
         'page': 'search',
@@ -30,14 +32,14 @@ if __name__ == '__main__':
             date = dateutil.parser.parse(r.headers['Last-Modified'])
 
             if os.path.isfile(filename):
-                print 'Skipping: %s' % filename
+                print Fore.RED + 'Skipping: %s' % filename
                 break
 
-            print filename
+            print Fore.GREEN + filename
             with open(filename, 'w') as f:
                 f.write(r.content)
 
             os.utime(filename, (time.time(), calendar.timegm(date.timetuple())))
             break
     else:
-        print 'Not found: %s' % query
+        print Fore.RED + 'Not found: %s' % query
