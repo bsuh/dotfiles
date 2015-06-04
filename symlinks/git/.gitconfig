@@ -5,3 +5,4 @@
 	default = simple
 [svn]
 	rmdir = true
+	pushmergeinfo = true
