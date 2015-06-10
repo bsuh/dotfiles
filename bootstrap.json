@@ -5,7 +5,8 @@
         "./npm.sh"
     ],
     "before-scripts": [
-        "./patch-emacs.sh"
+        "./patch-emacs.sh",
+        "./patch-git.sh"
     ],
     "casks": [
         "appcleaner",
@@ -43,7 +44,7 @@
         "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
         "fish",
-        "git",
+        "git --build-from-source",
         "jq",
         "mono",
         "mpv",

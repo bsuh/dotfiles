@@ -1,0 +1,17 @@
+diff --git a/Library/Formula/git.rb b/Library/Formula/git.rb
+index 4f577fb..c7fd18b 100644
+--- a/Library/Formula/git.rb
++++ b/Library/Formula/git.rb
+@@ -23,6 +23,12 @@ class Git < Formula
+     sha256 "5a6f6ef9c992eef29b62d8e963ba508583b917f14a374e0fbba3fe50a44c111a"
+   end
+ 
++
++  patch do
++    url "https://gist.githubusercontent.com/bsuh/c358ccd9da982a30a966/raw/2cc9196ce5ad74a43cc5175adf1ed071513c4248/gistfile1.diff"
++    sha1 "a67458175d1ff466b331743c7c400400af24bc88"
++  end
++
+   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
+   option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
+   option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
