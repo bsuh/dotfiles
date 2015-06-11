@@ -38,15 +38,15 @@ function peerflix
 end
 
 function emetric-update
-  for folder in (ls)
-    if test -d $folder/.git
-      echo $folder
-      if git -C $folder diff-index --quiet HEAD --
-        git -C $folder svn rebase
+  for folder in (find . -name .git)
+    if test -d $folder/svn
+      echo $folder/..
+      if git -C $folder/.. diff-index --quiet HEAD --
+        git -C $folder/.. svn rebase
       else
-        git -C $folder stash --quiet
-        git -C $folder svn rebase
-        git -C $folder stash pop --quiet
+        git -C $folder/.. stash --quiet
+        git -C $folder/.. svn rebase
+        git -C $folder/.. stash pop --quiet
       end
     end
   end
