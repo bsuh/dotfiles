@@ -81,6 +81,15 @@
    ;; shell path for gui
    (when (memq window-system '(mac ns))
      (exec-path-from-shell-initialize))
+
+   ;; magit
+   (add-to-list 'evil-emacs-state-modes 'magit-popup-mode)
+   (add-to-list 'evil-emacs-state-modes 'magit-popup-sequence-mode)
+   (add-to-list 'evil-emacs-state-modes 'magit-revision-mode)
+   (add-to-list 'evil-emacs-state-modes 'magit-log-select-mode)
+   (add-to-list 'evil-emacs-state-modes 'magit-cherry-mode)
+   (add-to-list 'evil-emacs-state-modes 'magit-stashes-mode)
+   (add-to-list 'evil-emacs-state-modes 'magit-refs-mode)
    ))
 
 (custom-set-variables
