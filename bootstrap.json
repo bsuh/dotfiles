@@ -40,8 +40,6 @@
         "cask",
         "curl --with-openssl",
         "choppsv1/term24/tmux",
-        "docker",
-        "docker-machine",
         "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
         "fish",
