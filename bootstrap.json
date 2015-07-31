@@ -29,9 +29,7 @@
         "vagrant",
         "virtualbox",
         "vlc",
-        "vmware-fusion",
-        "xquartz",
-        "wireshark"
+        "vmware-fusion"
     ],
     "formulas": [
         "aria2",
@@ -60,6 +58,7 @@
         "unrar",
         "vim --with-luajit --with-lua",
         "wget",
+        "wireshark --devel",
         "xctool",
         "youtube-dl --with-rtmpdump"
     ],
