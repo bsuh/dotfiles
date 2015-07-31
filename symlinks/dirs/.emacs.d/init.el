@@ -11,7 +11,7 @@
  'after-init-hook
  (lambda ()
    ;; custom mode line
-   (powerline-vim-theme)
+   (sml/setup)
 
    ;; window movement shortcuts
    (global-set-key (kbd "C-h")  'windmove-left)
