@@ -61,6 +61,7 @@
 (depends-on "tss")
 (depends-on "undo-tree")
 (depends-on "web-mode")
+(depends-on "with-editor")
 (depends-on "xclip")
 (depends-on "yaxception")
 (depends-on "zenburn-theme")
