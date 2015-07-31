@@ -90,6 +90,7 @@
    (add-to-list 'evil-emacs-state-modes 'magit-cherry-mode)
    (add-to-list 'evil-emacs-state-modes 'magit-stashes-mode)
    (add-to-list 'evil-emacs-state-modes 'magit-refs-mode)
+   (defalias 'magit-file-log 'magit-log-buffer-file)
    ))
 
 (custom-set-variables
