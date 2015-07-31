@@ -10,6 +10,9 @@
 (add-hook
  'after-init-hook
  (lambda ()
+   ;; custom mode line
+   (powerline-vim-theme)
+
    ;; window movement shortcuts
    (global-set-key (kbd "C-h")  'windmove-left)
    (global-set-key (kbd "C-l") 'windmove-right)
