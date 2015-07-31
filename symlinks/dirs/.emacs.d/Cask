@@ -27,6 +27,7 @@
 (depends-on "golden-ratio")
 (depends-on "goto-chg")
 (depends-on "helm")
+(depends-on "helm-core")
 (depends-on "helm-projectile")
 (depends-on "helm-swoop")
 (depends-on "highlight-symbol")
