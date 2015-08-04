@@ -40,7 +40,7 @@ end
 function emetric-update
   for folder in (find . -name .git)
     if test -d $folder/svn
-      echo $folder/..
+      echo (dirname $folder)
       if git -C $folder/.. diff-index --quiet HEAD --
         git -C $folder/.. svn rebase
       else
