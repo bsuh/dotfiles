@@ -2,7 +2,7 @@
   (if (and (= emacs-major-version 24) (= emacs-minor-version 4))
       (require 'cl)))
 
-(require 'cask "/usr/local/share/emacs/site-lisp/cask.el")
+(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
