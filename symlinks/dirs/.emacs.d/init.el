@@ -81,6 +81,11 @@
                (c-set-style "c#")
                (omnisharp-mode)))
 
+   ;; go
+   (add-hook 'go-mode-hook
+             (lambda ()
+               (setq-local indent-tabs-mode t)))
+
    ;; shell path for gui
    (when (memq window-system '(mac ns))
      (exec-path-from-shell-initialize))

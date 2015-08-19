@@ -20,6 +20,7 @@ set -gx PATH ~/mybins ~/animeget $PATH
 set -gx KONSOLE_DBUS_SESSION 1
 set -gx EDITOR emacs
 set -gx VISUAL emacs
+set -gx GOPATH $HOME/go
 
 function nuget
   mono ~/mybins/nuget.exe $argv

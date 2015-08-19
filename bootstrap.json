@@ -43,6 +43,7 @@
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
         "fish",
         "git --build-from-source --with-brewed-openssl --with-brewed-curl",
+        "go",
         "jq",
         "mono",
         "mpv",
