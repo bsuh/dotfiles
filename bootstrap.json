@@ -31,7 +31,6 @@
         "wireshark-dev"
     ],
     "formulas": [
-        "aria2",
         "autojump",
         "brew-cask",
         "cask",
@@ -50,7 +49,6 @@
         "p7zip",
         "python",
         "python3",
-        "rust",
         "shellcheck",
         "subversion",
         "the_silver_searcher",
