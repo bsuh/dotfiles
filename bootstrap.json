@@ -24,8 +24,6 @@
         "packages",
         "skype",
         "smcfancontrol",
-        "teamviewer",
-        "trim-enabler",
         "vagrant",
         "virtualbox",
         "vlc",
@@ -61,7 +59,6 @@
         "vim --with-luajit --with-lua",
         "wget",
         "xctool",
-        "youtube-dl --with-rtmpdump"
     ],
     "symlinks": {
         "dirs/*": "~",
