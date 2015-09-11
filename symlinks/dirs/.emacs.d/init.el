@@ -1,3 +1,11 @@
+(defvar gc-cons-threshold-backup gc-cons-threshold)
+(defvar file-name-handler-alist-backup file-name-handler-alist)
+(setq gc-cons-threshold (* 100 1024 1024))
+(setq file-name-handler-alist nil)
+(run-with-idle-timer 1 nil (lambda ()
+                             (setq gc-cons-threshold gc-cons-threshold-backup)
+                             (setq file-name-handler-alist file-name-handler-alist-backup)))
+
 (eval-when-compile
   (if (and (= emacs-major-version 24) (= emacs-minor-version 4))
       (require 'cl)))
