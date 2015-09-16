@@ -12,10 +12,53 @@
                              (setq gc-cons-threshold gc-cons-threshold-backup)
                              (setq file-name-handler-alist file-name-handler-alist-backup)))
 
-(require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
-(cask-initialize)
-(require 'pallet)
-(pallet-mode t)
+;; package management
+(defvar package-list
+  '(
+    ace-jump-mode
+    ag
+    company
+    company-tern
+    csharp-mode
+    evil
+    evil-surround
+    flx-ido
+    flycheck
+    go-mode
+    golden-ratio
+    helm-projectile
+    highlight-symbol
+    js2-mode
+    magit
+    markdown-mode
+    neotree
+    omnisharp
+    org-plus-contrib
+    projectile
+    rainbow-mode
+    skewer-mode
+    smart-mode-line
+    smex
+    tern
+    use-package
+    web-mode
+    xclip
+    zenburn-theme
+    ))
+
+(require 'package)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+(package-initialize)
+
+(unless package-archive-contents
+  (package-refresh-contents))
+
+(dolist (package package-list)
+  (unless (package-installed-p package)
+    (package-install package)))
+
 (require 'use-package)
 
 ;; don't wrap lines
