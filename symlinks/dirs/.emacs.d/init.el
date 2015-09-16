@@ -1,3 +1,9 @@
+;;; package --- Summary
+
+;;; Commentary:
+;;; My initialization file
+
+;;; Code:
 (defvar gc-cons-threshold-backup gc-cons-threshold)
 (defvar file-name-handler-alist-backup file-name-handler-alist)
 (setq gc-cons-threshold (* 100 1024 1024))
@@ -159,3 +165,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:weight normal :height 140 :width normal :family "Source Code Pro")))))
+
+(provide 'init)
+;;; init.el ends here
