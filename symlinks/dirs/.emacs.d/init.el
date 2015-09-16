@@ -4,6 +4,8 @@
 ;;; My initialization file
 
 ;;; Code:
+
+;; Replace some variables temporarily during startup for faster startup
 (defvar gc-cons-threshold-backup gc-cons-threshold)
 (defvar file-name-handler-alist-backup file-name-handler-alist)
 (setq gc-cons-threshold (* 100 1024 1024))
@@ -62,7 +64,7 @@
 (require 'use-package)
 
 ;; don't wrap lines
-(setq truncate-lines t)
+(setq-default truncate-lines t)
 
 ;; customize native UI
 (tool-bar-mode -1)
@@ -75,7 +77,7 @@
 
 ;; parenthesis
 (add-hook 'prog-mode-hook 'show-paren-mode)
-(setq show-parent-delay 0)
+(setq show-paren-delay 0)
 
 ;; neotree
 (global-set-key [f8] 'neotree-toggle)
@@ -202,13 +204,13 @@
 (setq markdown-command "grip --export -")
 
 ;; automatic window size adjust
+(require 'golden-ratio)
 (setq golden-ratio-exclude-modes '("neotree-mode"))
 (golden-ratio-mode t)
 
 ;; terminal copy & paste
 (require 'xclip)
 (xclip-mode t)
-(setq xclip-use-pbcopy&paste t)
 
 (provide 'init)
 ;;; init.el ends here
