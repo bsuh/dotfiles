@@ -101,6 +101,10 @@
    (add-to-list 'evil-emacs-state-modes 'magit-stashes-mode)
    (add-to-list 'evil-emacs-state-modes 'magit-refs-mode)
    (defalias 'magit-file-log 'magit-log-buffer-file)
+
+   ;; org
+   (eval-after-load 'org
+     '(add-to-list 'org-modules 'org-habit))
    ))
 
 (custom-set-variables
@@ -142,9 +146,6 @@
  '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done (quote time))
- '(org-modules
-   (quote
-    (org-bbdb org-bibtex org-docview org-gnus org-habit org-info org-irc org-mhe org-rmail org-w3m)))
  '(show-paren-delay 0)
  '(show-paren-mode t)
  '(sml/line-number-format "%l")
