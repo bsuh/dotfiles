@@ -61,6 +61,7 @@
 (depends-on "tern")
 (depends-on "tss")
 (depends-on "undo-tree")
+(depends-on "use-package")
 (depends-on "web-mode")
 (depends-on "with-editor")
 (depends-on "xclip")

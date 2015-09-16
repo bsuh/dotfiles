@@ -20,151 +20,164 @@
 (cask-initialize)
 (require 'pallet)
 (pallet-mode t)
+(require 'use-package)
 
-(add-hook
- 'after-init-hook
- (lambda ()
-   ;; custom mode line
-   (sml/setup)
+;; don't wrap lines
+(setq truncate-lines t)
 
-   ;; neotree
-   (global-set-key [f8] 'neotree-toggle)
+;; customize native UI
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(column-number-mode t)
 
-   ;; smex
-   (smex-initialize)
-   (global-set-key (kbd "M-x") 'smex)
+;; indentation
+(setq indent-tabs-mode nil)
+(setq tab-width 2)
 
-   ;; auto completion
-   (define-key company-active-map "\C-n" 'company-select-next)
-   (define-key company-active-map "\C-p" 'company-select-previous)
+;; parenthesis
+(add-hook 'prog-mode-hook 'show-paren-mode)
+(setq show-parent-delay 0)
 
-   ;; vim
-   (evil-mode 1)
-   (define-key evil-ex-map "b " 'helm-mini) ; better switch buffer
-   (define-key evil-ex-map "bd " 'ido-kill-buffer) ; better kill buffer
-   (define-key evil-ex-map "e " ; better open file using projectile or ido
-     (lambda (arg)
-       (interactive "P")
-       (require 'projectile)
-       (if (projectile-project-p)
-           (helm-projectile)
-         (helm-find-files arg))))
-   (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
-   (define-key evil-normal-state-map "'" 'ace-jump-mode)
+;; neotree
+(global-set-key [f8] 'neotree-toggle)
 
-   ;; higlight current symbol
-   (add-hook 'prog-mode-hook
-             (lambda ()
-               (highlight-symbol-mode)
-               (highlight-symbol-nav-mode)))
+;; ido & smex
+(flx-ido-mode t)
+(global-set-key (kbd "M-x") 'smex)
+(setq ido-everywhere t)
+(ido-mode t)
+(setq ido-use-faces nil)
 
-   ;; html
-   (add-to-list 'auto-mode-alist '("\\.cshtml?\\'" . web-mode))
-   (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-   (eval-after-load 'flycheck
-     '(put 'html-tidy 'flycheck-modes (append '(web-mode) (get 'html-tidy 'flycheck-modes))))
+;; auto completion
+(require 'company)
+(global-company-mode t)
+(define-key company-active-map "\C-n" 'company-select-next)
+(define-key company-active-map "\C-p" 'company-select-previous)
+(require 'company-dabbrev)
+(setq company-dabbrev-downcase nil)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
 
-   ;; javascript
-   (eval-after-load 'company
-     '(add-to-list 'company-backends 'company-tern))
-   (add-hook 'js-mode-hook
-             (lambda ()
-               (js2-minor-mode)
-               (tern-mode)
-               (skewer-mode)
-               (flycheck-mode)))
+;; vim
+(defvar evil-want-C-u-scroll t)
+(require 'evil)
+(evil-mode 1)
+(global-evil-surround-mode t)
+(define-key evil-ex-map "b " 'helm-mini) ; better switch buffer
+(define-key evil-ex-map "bd " 'ido-kill-buffer) ; better kill buffer
+(define-key evil-ex-map "e " ; better open file using projectile or ido
+  (lambda (arg)
+    (interactive "P")
+    (require 'projectile)
+    (if (projectile-project-p)
+        (helm-projectile)
+      (helm-find-files arg))))
+(define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
+(define-key evil-normal-state-map "'" 'ace-jump-mode)
 
-   ;; css
-   (add-hook 'css-mode-hook
-             (lambda ()
-               (rainbow-mode)
-               (skewer-css-mode)))
+;; flycheck
+(require 'flycheck)
+(global-flycheck-mode t)
 
-   ;; c#
-   (eval-after-load 'company
-     '(add-to-list 'company-backends 'company-omnisharp))
-   (add-hook 'csharp-mode-hook
-             (lambda ()
-               (setq-local c-basic-offset 4)
-               (c-set-style "c#")
-               (omnisharp-mode)))
+;; higlight current symbol
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (highlight-symbol-mode)
+            (highlight-symbol-nav-mode)))
 
-   ;; go
-   (add-hook 'go-mode-hook
-             (lambda ()
-               (setq-local indent-tabs-mode t)))
+;; html
+(put 'html-tidy 'flycheck-modes (append '(web-mode) (get 'html-tidy 'flycheck-modes)))
+(use-package
+ web-mode
+ :mode ("\\.cshtml?\\'" "\\.html?\\'"))
 
-   ;; shell path for gui
-   (when (memq window-system '(mac ns))
-     (exec-path-from-shell-initialize))
+(setq web-mode-code-indent-offset 4)
+(setq web-mode-css-indent-offset 4)
+(setq web-mode-markup-indent-offset 2)
 
-   ;; magit
-   (defalias 'magit-file-log 'magit-log-buffer-file)
+;; javascript
+(setq c-basic-offset 2)
+(setq c-default-style "linux")
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-tern))
+(add-hook 'js-mode-hook
+          (lambda ()
+            (js2-minor-mode)
+            (tern-mode)
+            (skewer-mode)
+            (flycheck-mode)))
+(setq js-indent-level 2)
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
 
-   ;; org
-   (eval-after-load 'org
-     '(add-to-list 'org-modules 'org-habit))
-   ))
+;; css
+(add-hook 'css-mode-hook
+          (lambda ()
+            (rainbow-mode)
+            (skewer-css-mode)))
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(auto-save-list-file-prefix "~/.saves.auto-saves-")
- '(backup-directory-alist (quote (("." . "~/.saves"))))
- '(c-basic-offset 2)
- '(c-default-style "linux")
- '(column-number-mode t)
- '(company-dabbrev-downcase nil)
- '(company-idle-delay 0)
- '(company-minimum-prefix-length 2)
- '(custom-enabled-themes (quote (zenburn)))
- '(custom-safe-themes
+;; c#
+(setq omnisharp-server-executable-path "~/mybins/OmniSharpServer/OmniSharp.exe")
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-omnisharp))
+(add-hook 'csharp-mode-hook
+          (lambda ()
+            (setq-local c-basic-offset 4)
+            (c-set-style "c#")
+            (omnisharp-mode)))
+
+;; go
+(add-hook 'go-mode-hook
+          (lambda ()
+            (setq-local indent-tabs-mode t)))
+
+;; shell path for gui
+(when (memq window-system '(mac ns))
+  (exec-path-from-shell-initialize))
+
+;; magit
+(setq magit-use-overlays nil)
+(defalias 'magit-file-log 'magit-log-buffer-file)
+
+;; org
+(setq org-agenda-files '("~/org/todo.org"))
+(setq org-habit-show-habits-only-for-today nil)
+(setq org-log-done 'time)
+(eval-after-load 'org
+  '(add-to-list 'org-modules 'org-habit))
+
+;; custom mode line
+(require 'smart-mode-line)
+(setq custom-safe-themes
    (quote
-    ("7c89d1df5a1dd624983f6d107aced89a4b3d787b20997e5c6cff30cc1ba1b55d" default)))
- '(evil-want-C-u-scroll t)
- '(flx-ido-mode t)
- '(global-company-mode t)
- '(global-evil-surround-mode t)
- '(global-flycheck-mode t nil (flycheck))
- '(golden-ratio-exclude-modes (quote ("neotree-mode")))
- '(golden-ratio-mode t)
- '(ido-everywhere t)
- '(ido-mode (quote both) nil (ido))
- '(ido-use-faces nil)
- '(indent-tabs-mode nil)
- '(js-indent-level 2)
- '(js2-mode-show-parse-errors nil)
- '(js2-mode-show-strict-warnings nil)
- '(mac-option-modifier (quote meta))
- '(magit-use-overlays nil)
- '(markdown-command "grip --export -")
- '(menu-bar-mode nil)
- '(omnisharp-server-executable-path "~/mybins/OmniSharpServer/OmniSharp.exe")
- '(org-agenda-files (quote ("~/org/todo.org")))
- '(org-habit-show-habits-only-for-today nil)
- '(org-log-done (quote time))
- '(show-paren-delay 0)
- '(show-paren-mode t)
- '(sml/line-number-format "%l")
- '(sml/mode-width 80)
- '(sml/name-width 42)
- '(sml/theme (quote dark))
- '(tab-width 2)
- '(tool-bar-mode nil)
- '(truncate-lines t)
- '(web-mode-code-indent-offset 4)
- '(web-mode-css-indent-offset 4)
- '(web-mode-markup-indent-offset 2)
- '(xclip-mode t)
- '(xclip-use-pbcopy&paste t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((t (:weight normal :height 140 :width normal :family "Source Code Pro")))))
+    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
+(setq sml/line-number-format "%l")
+(setq sml/mode-width 80)
+(setq sml/name-width 42)
+(setq sml/theme (quote dark))
+(sml/setup)
+
+;; color theme
+(load-theme 'zenburn t)
+
+;; markdown
+(setq markdown-command "grip --export -")
+
+;; automatic window size adjust
+(setq golden-ratio-exclude-modes '("neotree-mode"))
+(golden-ratio-mode t)
+
+;; backup
+(setq auto-save-list-file-prefix "~/.saves.auto-saves-")
+(setq backup-directory-alist (quote (("." . "~/.saves"))))
+
+;; Mac GUI meta key
+(setq mac-option-modifier 'meta)
+
+;; terminal copy & paste
+(require 'xclip)
+(xclip-mode t)
+(setq xclip-use-pbcopy&paste t)
 
 (provide 'init)
 ;;; init.el ends here
