@@ -12,10 +12,6 @@
                              (setq gc-cons-threshold gc-cons-threshold-backup)
                              (setq file-name-handler-alist file-name-handler-alist-backup)))
 
-(eval-when-compile
-  (if (and (= emacs-major-version 24) (= emacs-minor-version 4))
-      (require 'cl)))
-
 (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")
 (cask-initialize)
 (require 'pallet)
@@ -136,7 +132,6 @@
   (exec-path-from-shell-initialize))
 
 ;; magit
-(setq magit-use-overlays nil)
 (defalias 'magit-file-log 'magit-log-buffer-file)
 
 ;; org
@@ -166,13 +161,6 @@
 ;; automatic window size adjust
 (setq golden-ratio-exclude-modes '("neotree-mode"))
 (golden-ratio-mode t)
-
-;; backup
-(setq auto-save-list-file-prefix "~/.saves.auto-saves-")
-(setq backup-directory-alist (quote (("." . "~/.saves"))))
-
-;; Mac GUI meta key
-(setq mac-option-modifier 'meta)
 
 ;; terminal copy & paste
 (require 'xclip)
