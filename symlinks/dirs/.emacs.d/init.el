@@ -6,8 +6,8 @@
 ;;; Code:
 
 ;; Replace some variables temporarily during startup for faster startup
-(defvar gc-cons-threshold-backup gc-cons-threshold)
-(defvar file-name-handler-alist-backup file-name-handler-alist)
+(setq gc-cons-threshold-backup gc-cons-threshold)
+(setq file-name-handler-alist-backup file-name-handler-alist)
 (setq gc-cons-threshold (* 100 1024 1024))
 (setq file-name-handler-alist nil)
 (run-with-idle-timer 1 nil (lambda ()
@@ -61,8 +61,6 @@
   (unless (package-installed-p package)
     (package-install package)))
 
-(require 'use-package)
-
 ;; don't wrap lines
 (setq-default truncate-lines t)
 
@@ -71,36 +69,18 @@
 (menu-bar-mode -1)
 (column-number-mode t)
 
-;; indentation
-(setq indent-tabs-mode nil)
-(setq tab-width 2)
-
-;; parenthesis
-(add-hook 'prog-mode-hook 'show-paren-mode)
-(setq show-paren-delay 0)
-
 ;; neotree
 (global-set-key [f8] 'neotree-toggle)
 
 ;; ido & smex
+(setq ido-everywhere t)
+(setq ido-use-faces nil)
+(ido-mode t)
 (flx-ido-mode t)
 (global-set-key (kbd "M-x") 'smex)
-(setq ido-everywhere t)
-(ido-mode t)
-(setq ido-use-faces nil)
-
-;; auto completion
-(require 'company)
-(global-company-mode t)
-(define-key company-active-map "\C-n" 'company-select-next)
-(define-key company-active-map "\C-p" 'company-select-previous)
-(require 'company-dabbrev)
-(setq company-dabbrev-downcase nil)
-(setq company-idle-delay 0)
-(setq company-minimum-prefix-length 2)
 
 ;; vim
-(defvar evil-want-C-u-scroll t)
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 (global-evil-surround-mode t)
@@ -116,9 +96,26 @@
 (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
 (define-key evil-normal-state-map "'" 'ace-jump-mode)
 
+;; auto completion
+(setq company-dabbrev-downcase nil)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 2)
+(require 'company)
+(global-company-mode t)
+(define-key company-active-map "\C-n" 'company-select-next)
+(define-key company-active-map "\C-p" 'company-select-previous)
+
 ;; flycheck
 (require 'flycheck)
 (global-flycheck-mode t)
+
+;; indentation
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
+
+;; parenthesis
+(setq show-paren-delay 0)
+(add-hook 'prog-mode-hook 'show-paren-mode)
 
 ;; higlight current symbol
 (add-hook 'prog-mode-hook
@@ -126,19 +123,23 @@
             (highlight-symbol-mode)
             (highlight-symbol-nav-mode)))
 
-;; html
-(put 'html-tidy 'flycheck-modes (append '(web-mode) (get 'html-tidy 'flycheck-modes)))
-(use-package
- web-mode
- :mode ("\\.cshtml?\\'" "\\.html?\\'"))
+;; C-style languages
+(setq c-basic-offset 2)
+(setq c-default-style "linux")
 
+;; html
 (setq web-mode-code-indent-offset 4)
 (setq web-mode-css-indent-offset 4)
 (setq web-mode-markup-indent-offset 2)
+(add-to-list 'auto-mode-alist '("\\.cshtml?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(eval-after-load 'flycheck
+  '(put 'html-tidy 'flycheck-modes (append '(web-mode) (get 'html-tidy 'flycheck-modes))))
 
 ;; javascript
-(setq c-basic-offset 2)
-(setq c-default-style "linux")
+(setq js-indent-level 2)
+(setq js2-mode-show-parse-errors nil)
+(setq js2-mode-show-strict-warnings nil)
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-tern))
 (add-hook 'js-mode-hook
@@ -147,9 +148,6 @@
             (tern-mode)
             (skewer-mode)
             (flycheck-mode)))
-(setq js-indent-level 2)
-(setq js2-mode-show-parse-errors nil)
-(setq js2-mode-show-strict-warnings nil)
 
 ;; css
 (add-hook 'css-mode-hook
@@ -172,10 +170,6 @@
           (lambda ()
             (setq-local indent-tabs-mode t)))
 
-;; shell path for gui
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
-
 ;; magit
 (defalias 'magit-file-log 'magit-log-buffer-file)
 
@@ -186,26 +180,24 @@
 (eval-after-load 'org
   '(add-to-list 'org-modules 'org-habit))
 
+;; color theme
+(load-theme 'zenburn t)
+
 ;; custom mode line
-(require 'smart-mode-line)
-(setq custom-safe-themes
-   (quote
-    ("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default)))
 (setq sml/line-number-format "%l")
 (setq sml/mode-width 80)
 (setq sml/name-width 42)
 (setq sml/theme (quote dark))
+(setq custom-safe-themes '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
+(require 'smart-mode-line)
 (sml/setup)
-
-;; color theme
-(load-theme 'zenburn t)
 
 ;; markdown
 (setq markdown-command "grip --export -")
 
 ;; automatic window size adjust
-(require 'golden-ratio)
 (setq golden-ratio-exclude-modes '("neotree-mode"))
+(require 'golden-ratio)
 (golden-ratio-mode t)
 
 ;; terminal copy & paste
