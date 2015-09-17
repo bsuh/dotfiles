@@ -14,6 +14,12 @@
                              (setq gc-cons-threshold gc-cons-threshold-backup)
                              (setq file-name-handler-alist file-name-handler-alist-backup)))
 
+(eval-when-compile
+  (if (and (= emacs-major-version 24)
+           (or (= emacs-minor-version 4)
+               (= emacs-minor-version 5)))
+      (require 'cl)))
+
 ;; package management
 (defvar package-list
   '(
