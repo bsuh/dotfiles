@@ -6,5 +6,3 @@
 [svn]
 	rmdir = true
 	pushmergeinfo = true
-[rebase]
-	autostash = true
