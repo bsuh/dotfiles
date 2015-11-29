@@ -31,7 +31,7 @@ function livestreamer
 end
 
 function twitch
-  livestreamer "http://www.twitch.tv/"$argv[1] $argv[2..-1]
+  livestreamer --hls-segment-threads 8 "http://www.twitch.tv/"$argv[1] $argv[2..-1]
 end
 
 function peerflix
