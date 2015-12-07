@@ -16,7 +16,7 @@ set fish_theme robbyrussell
 
 [ -f /usr/local/share/autojump/autojump.fish ]; and . /usr/local/share/autojump/autojump.fish
 
-set -gx PATH ~/mybins $PATH
+set -gx PATH ~/mybins /usr/local/sbin $PATH
 set -gx KONSOLE_DBUS_SESSION 1
 set -gx EDITOR emacs
 set -gx VISUAL emacs
