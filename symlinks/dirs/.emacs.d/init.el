@@ -20,6 +20,8 @@
                (= emacs-minor-version 5)))
       (require 'cl)))
 
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+
 ;; package management
 (defvar package-list
   '(
@@ -48,9 +50,7 @@
     smart-mode-line
     smex
     tern
-    use-package
     web-mode
-    xclip
     zenburn-theme
     ))
 
