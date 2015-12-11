@@ -2,7 +2,8 @@
     "after-scripts": [
         "./emacs-packages.sh",
         "./pip.sh",
-        "./npm.sh"
+        "./npm.sh",
+        "./depot_tools.sh"
     ],
     "before-scripts": [
         "./patch-emacs.sh",
