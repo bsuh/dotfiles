@@ -28,16 +28,19 @@
     ace-jump-mode
     ag
     company
+    company-irony
     company-tern
     csharp-mode
     evil
     evil-surround
     flx-ido
     flycheck
+    flycheck-irony
     go-mode
     golden-ratio
     helm-projectile
     highlight-symbol
+    irony
     js2-mode
     magit
     markdown-mode
@@ -66,6 +69,19 @@
 (dolist (package package-list)
   (unless (package-installed-p package)
     (package-install package)))
+
+;; c++/c/objective-c completion
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'objc-mode-hook 'irony-mode)
+
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+
+(eval-after-load 'flycheck
+  '(add-to-list 'flycheck-mode-hook #'flycheck-irony-setup))
 
 ;; don't wrap lines
 (setq-default truncate-lines t)
