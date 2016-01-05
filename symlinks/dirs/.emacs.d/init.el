@@ -86,6 +86,9 @@
 ;; don't wrap lines
 (setq-default truncate-lines t)
 
+;; show trailing whitespace
+(setq-default show-trailing-whitespace t)
+
 ;; customize native UI
 (tool-bar-mode -1)
 (menu-bar-mode -1)
