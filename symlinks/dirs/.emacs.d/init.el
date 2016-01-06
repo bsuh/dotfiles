@@ -87,7 +87,9 @@
 (setq-default truncate-lines t)
 
 ;; show trailing whitespace
-(setq-default show-trailing-whitespace t)
+(add-hook 'prog-mode-hook
+          (lambda ()
+            (setq-local show-trailing-whitespace t)))
 
 ;; customize native UI
 (tool-bar-mode -1)
