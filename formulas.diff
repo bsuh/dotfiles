@@ -15,19 +15,3 @@ index 528e7b5..23f29b8 100644
    option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
    option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
    option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
-diff --git a/Library/Formula/tmux.rb b/Library/Formula/tmux.rb
-index 46446ed..1035729 100644
---- a/Library/Formula/tmux.rb
-+++ b/Library/Formula/tmux.rb
-@@ -33,6 +33,11 @@ class Tmux < Formula
-   depends_on "pkg-config" => :build
-   depends_on "libevent"
- 
-+  patch do
-+    url "https://gist.githubusercontent.com/choppsv1/352421a9f49262ad5c93/raw/5d29be026e11f75a9f570f354149c913c749a699/tmux-2.1-24bit.diff"
-+    sha256 "6d92559da2bf7433f505efd785404fe055772c7cd8c49d208d7522b169c09903"
-+  end
-+
-   def install
-     system "sh", "autogen.sh" if build.head?
- 
