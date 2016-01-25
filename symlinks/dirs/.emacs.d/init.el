@@ -30,15 +30,14 @@
     company
     company-irony
     company-tern
+    counsel
     csharp-mode
     evil
     evil-surround
-    flx-ido
     flycheck
     flycheck-irony
     go-mode
     golden-ratio
-    helm-projectile
     highlight-symbol
     irony
     js2-mode
@@ -99,28 +98,39 @@
 ;; neotree
 (global-set-key [f8] 'neotree-toggle)
 
-;; ido & smex
-(setq ido-everywhere t)
-(setq ido-use-faces nil)
-(ido-mode t)
-(flx-ido-mode t)
-(global-set-key (kbd "M-x") 'smex)
+;; ivy & smex
+(ivy-mode t)
+(setq magit-completing-read-function 'ivy-completing-read)
+(setq projectile-completion-system 'ivy)
+(setq ivy-wrap t)
+(setq ivy-re-builders-alist
+      '((counsel-M-x . ivy--regex-fuzzy)
+        (t . ivy--regex-plus)))
+(global-set-key (kbd "M-x") 'counsel-M-x)
+
+(recentf-mode t)
+(defun recentf-find-file ()
+  "Find a recent file using Ido."
+  (interactive)
+  (let ((file (completing-read "Choose recent file: " recentf-list nil t)))
+    (when file
+      (find-file file))))
 
 ;; vim
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 (global-evil-surround-mode t)
-(define-key evil-ex-map "b " 'helm-mini) ; better switch buffer
-(define-key evil-ex-map "bd " 'ido-kill-buffer) ; better kill buffer
-(define-key evil-ex-map "e " ; better open file using projectile or ido
-  (lambda (arg)
-    (interactive "P")
+(define-key evil-ex-map "b " 'switch-to-buffer) ; instant switch buffer shortcut
+(define-key evil-ex-map "bd " 'kill-buffer) ; instant kill buffer shortcut
+(define-key evil-ex-map "e " ; better open file using projectile or ivy
+  (lambda ()
+    (interactive)
     (require 'projectile)
     (if (projectile-project-p)
-        (helm-projectile)
-      (helm-find-files arg))))
-(define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
+        (projectile-find-file)
+      (call-interactively 'find-file))))
+(define-key evil-normal-state-map (kbd "SPC") 'counsel-M-x) ; quicker M-x access
 (define-key evil-normal-state-map "'" 'ace-jump-mode)
 
 ;; auto completion
