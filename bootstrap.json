@@ -1,6 +1,5 @@
 {
     "after-scripts": [
-        "./emacs-packages.sh",
         "./pip.sh",
         "./npm.sh",
         "./depot_tools.sh"
@@ -34,7 +33,6 @@
         "adobe-air-sdk",
         "autojump",
         "brew-cask",
-        "cask",
         "curl --with-openssl",
         "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
