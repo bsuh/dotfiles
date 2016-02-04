@@ -28,7 +28,7 @@
         "virtualbox",
         "vlc",
         "vmware-fusion",
-        "wireshark-dev"
+        "wireshark"
     ],
     "formulas": [
         "autojump",
