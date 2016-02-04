@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm install -g eslint node-inspector npm-check-updates tern
+npm install --no-progress -g eslint node-inspector npm-check-updates tern
