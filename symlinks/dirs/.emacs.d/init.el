@@ -36,6 +36,7 @@
     evil-surround
     flycheck
     flycheck-irony
+    fsharp-mode
     go-mode
     golden-ratio
     highlight-symbol
@@ -201,6 +202,11 @@
             (setq-local c-basic-offset 4)
             (c-set-style "c#")
             (omnisharp-mode)))
+
+;; f#
+(add-hook 'fsharp-mode-hook
+          (lambda ()
+            (setq indent-line-function 'indent-relative)))
 
 ;; go
 (add-hook 'go-mode-hook
