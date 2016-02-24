@@ -1,17 +1,6 @@
 ﻿{
   "PathReplacements": [
-    {
-      "From": "\\",
-      "To": "/"
-    },
-    {
-      "From": "c:",
-      "To": "~/emetric/Projects"
-    },
-    {
-      "From": "C:",
-      "To": "~/emetric/Projects"
-    }
+
   ],
 
   /* Example cygwin path replacements
