@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip install virtualenv livestreamer youtube-dl
+pip install virtualenv livestreamer
