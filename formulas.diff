@@ -1,9 +1,9 @@
 diff --git a/Library/Formula/git.rb b/Library/Formula/git.rb
-index 528e7b5..23f29b8 100644
+index 9bcbd05..bfcd8b9 100644
 --- a/Library/Formula/git.rb
 +++ b/Library/Formula/git.rb
 @@ -22,6 +22,12 @@ class Git < Formula
-     sha256 "a9d30a744eb07392ba3ffe389cca7e57a2bdd718c9ffccdf2d525eeafac548a9"
+     sha256 "3fae21e2e68104621ea1405be73192b46bf3ef29bbc248a81b1e7e6fcf5acfad"
    end
  
 +  patch do
