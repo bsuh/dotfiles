@@ -1,14 +1,14 @@
 diff --git a/Library/Formula/git.rb b/Library/Formula/git.rb
-index 9bcbd05..bfcd8b9 100644
+index 33a8183..4fbdc37 100644
 --- a/Library/Formula/git.rb
 +++ b/Library/Formula/git.rb
 @@ -22,6 +22,12 @@ class Git < Formula
-     sha256 "3fae21e2e68104621ea1405be73192b46bf3ef29bbc248a81b1e7e6fcf5acfad"
+     sha256 "515bee47dbb1f1c345eae394e14f82009865529aaf0c201301defee32512a7c6"
    end
  
 +  patch do
-+    url "https://gist.githubusercontent.com/bsuh/c358ccd9da982a30a966/raw/3ee52ae5b5712b3c58a6d79af7800f59f65bbd96/gistfile1.diff"
-+    sha1 "cd7b5e88345ddc0e7cf83147eabcb756c4a73fe0"
++    url "https://gist.githubusercontent.com/bsuh/c358ccd9da982a30a966/raw/e9c9925045f3b766390c1828c9b60ac0fb5967dd/gistfile1.diff"
++    sha256 "3d9817b33de714c9f97b5ac579de66320be6bb4d697c81b2aa0484ecf061c1e0"
 +  end
 +
 +
