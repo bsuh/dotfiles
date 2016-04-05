@@ -1,9 +1,9 @@
-diff --git a/Library/Formula/git.rb b/Library/Formula/git.rb
-index 33a8183..4fbdc37 100644
---- a/Library/Formula/git.rb
-+++ b/Library/Formula/git.rb
-@@ -22,6 +22,12 @@ class Git < Formula
-     sha256 "515bee47dbb1f1c345eae394e14f82009865529aaf0c201301defee32512a7c6"
+diff --git a/Formula/git.rb b/Formula/git.rb
+index 81b16ff..d25c08f 100644
+--- a/Formula/git.rb
++++ b/Formula/git.rb
+@@ -41,6 +41,11 @@ class Git < Formula
+     sha256 "e7a02f82971f6c0242ce66c9d4708a3ed2449a5b8ecc72fc39d9bad10b4e359d"
    end
  
 +  patch do
@@ -11,7 +11,6 @@ index 33a8183..4fbdc37 100644
 +    sha256 "3d9817b33de714c9f97b5ac579de66320be6bb4d697c81b2aa0484ecf061c1e0"
 +  end
 +
-+
-   option "with-blk-sha1", "Compile with the block-optimized SHA1 implementation"
-   option "without-completions", "Disable bash/zsh completions from 'contrib' directory"
-   option "with-brewed-openssl", "Build with Homebrew OpenSSL instead of the system version"
+   def install
+     # If these things are installed, tell Git build system to not use them
+     ENV["NO_FINK"] = "1"
