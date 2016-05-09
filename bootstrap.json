@@ -35,6 +35,7 @@
         "ansible",
         "autojump",
         "brew-cask",
+        "cmake",
         "curl --with-openssl",
         "railwaycat/emacsmacport/emacs-mac --icon-modern --with-imagemagick --with-xml2",
         "ffmpeg --with-openssl --with-faac --with-rtmpdump",
