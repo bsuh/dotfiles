@@ -43,6 +43,7 @@
         "git --build-from-source --with-brewed-openssl --with-brewed-curl",
         "go",
         "jq",
+        "llvm --with-libclang",
         "mono",
         "mpv",
         "ncdu",
