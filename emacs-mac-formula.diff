@@ -1,9 +1,9 @@
 diff --git a/Formula/emacs-mac.rb b/Formula/emacs-mac.rb
-index bcddd7c..ae80f78 100644
+index bc51391..737dd8a 100644
 --- a/Formula/emacs-mac.rb
 +++ b/Formula/emacs-mac.rb
-@@ -63,6 +63,11 @@ class EmacsMac < Formula
-     end
+@@ -85,6 +85,11 @@ class EmacsMac < Formula
+     "https://raw.githubusercontent.com/emacsfodder/emacs-icons-project/master/#{icon}.icns"
    end
  
 +  patch do
