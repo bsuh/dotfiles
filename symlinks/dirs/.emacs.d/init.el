@@ -121,6 +121,7 @@
 (setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
+(require 'evil-surround)
 (global-evil-surround-mode t)
 (define-key evil-ex-map "b " 'switch-to-buffer) ; instant switch buffer shortcut
 (define-key evil-ex-map "bd " 'kill-buffer) ; instant kill buffer shortcut
