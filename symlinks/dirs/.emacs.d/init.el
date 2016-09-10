@@ -89,6 +89,7 @@
 ;; show trailing whitespace
 (add-hook 'prog-mode-hook
           (lambda ()
+            (hs-minor-mode t)
             (setq-local show-trailing-whitespace t)))
 
 ;; customize native UI
