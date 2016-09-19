@@ -245,9 +245,5 @@
 (require 'golden-ratio)
 (golden-ratio-mode t)
 
-;; terminal copy & paste
-(require 'xclip)
-(xclip-mode t)
-
 (provide 'init)
 ;;; init.el ends here
