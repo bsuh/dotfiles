@@ -232,7 +232,7 @@
 (setq sml/line-number-format "%l")
 (setq sml/mode-width 80)
 (setq sml/name-width 42)
-(setq sml/theme (quote dark))
+(setq sml/theme (quote automatic))
 (setq custom-safe-themes '("3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))
 (require 'smart-mode-line)
 (sml/setup)
