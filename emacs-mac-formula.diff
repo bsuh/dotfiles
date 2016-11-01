@@ -1,9 +1,9 @@
 diff --git a/Formula/emacs-mac.rb b/Formula/emacs-mac.rb
-index bc51391..737dd8a 100644
+index 9081542..9ba919c 100644
 --- a/Formula/emacs-mac.rb
 +++ b/Formula/emacs-mac.rb
-@@ -85,6 +85,11 @@ class EmacsMac < Formula
-     "https://raw.githubusercontent.com/emacsfodder/emacs-icons-project/master/#{icon}.icns"
+@@ -73,6 +73,11 @@ class EmacsMac < Formula
+     sha256 "b3db8b7cfa4bc5bce24bc4dc1ede3b752c7186c7b54c09994eab5ec4eaa48900"
    end
  
 +  patch do
@@ -13,4 +13,4 @@ index bc51391..737dd8a 100644
 +
    def install
      args = [
-       "--prefix=#{prefix}",
+       "--enable-locallisppath=#{HOMEBREW_PREFIX}/share/emacs/site-lisp",

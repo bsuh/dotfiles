@@ -1,9 +1,9 @@
 diff --git a/Formula/git.rb b/Formula/git.rb
-index fa91cbd..4d6e392 100644
+index 956aa0f..4d88061 100644
 --- a/Formula/git.rb
 +++ b/Formula/git.rb
-@@ -41,6 +41,11 @@ class Git < Formula
-     sha256 "9edff3393b7d388a148a4c21fe4ebfb18fe3a2b96ba149d882184f20a6478998"
+@@ -40,6 +40,11 @@ class Git < Formula
+     sha256 "83b0a317f6039ad95ef6af6a182cf659c2d053eed5d8f70b06710eb787f8aa6f"
    end
  
 +  patch do
@@ -12,5 +12,5 @@ index fa91cbd..4d6e392 100644
 +  end
 +
    def install
-     # If these things are installed, tell Git build system to not use them
+     # If these things are installed, tell Git build system not to use them
      ENV["NO_FINK"] = "1"
