@@ -1,14 +1,15 @@
 diff --git a/Formula/emacs-mac.rb b/Formula/emacs-mac.rb
-index 9081542..9ba919c 100644
+index 9081542..96a5dec 100644
 --- a/Formula/emacs-mac.rb
 +++ b/Formula/emacs-mac.rb
-@@ -73,6 +73,11 @@ class EmacsMac < Formula
+@@ -73,6 +73,12 @@ class EmacsMac < Formula
      sha256 "b3db8b7cfa4bc5bce24bc4dc1ede3b752c7186c7b54c09994eab5ec4eaa48900"
    end
  
-+  patch do
-+    url "https://gist.githubusercontent.com/choppsv1/e8198df70cb1778b04d6/raw/4bb449f36b621ae5122b673bf40cfad0b3bb103e/emacs-24.5-24bit.diff"
-+    sha256 "fbe9ce2014535f79d878d65062906f8a869bf49fe51421672f10a406e1d44b12"
++  # Apply patch to support 24-bit colors in a terminal.
++  patch :p0 do
++    url "https://gist.githubusercontent.com/choppsv1/3364fd6658ef498b5e06151217187017/raw/5ca5dc1d6218c6d28c09172e77eec79f3c31a97e/emacs-25.1-24bit.diff"
++    sha256 "53caad04aa6cb64fade9fedf6289185e3ddf33beeec41b216761f10f9f3386d5"
 +  end
 +
    def install
