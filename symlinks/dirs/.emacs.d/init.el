@@ -22,53 +22,11 @@
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
-;; package management
-(defvar package-list
-  '(
-    ace-jump-mode
-    ag
-    company
-    company-irony
-    company-tern
-    counsel
-    csharp-mode
-    evil
-    evil-surround
-    flycheck
-    flycheck-irony
-    fsharp-mode
-    go-mode
-    golden-ratio
-    highlight-symbol
-    irony
-    js2-mode
-    magit
-    markdown-mode
-    neotree
-    omnisharp
-    org-plus-contrib
-    projectile
-    rainbow-mode
-    skewer-mode
-    smart-mode-line
-    smex
-    tern
-    web-mode
-    zenburn-theme
-    ))
-
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (package-initialize)
-
-(unless package-archive-contents
-  (package-refresh-contents))
-
-(dolist (package package-list)
-  (unless (package-installed-p package)
-    (package-install package)))
 
 ;; c++/c/objective-c completion
 (add-hook 'c++-mode-hook 'irony-mode)
@@ -247,3 +205,17 @@
 
 (provide 'init)
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (alchemist yaml-mode request-deferred elixir-mode zenburn-theme web-mode smex smart-mode-line skewer-mode rainbow-mode projectile org-plus-contrib omnisharp neotree markdown-mode magit highlight-symbol golden-ratio go-mode fsharp-mode flycheck-irony evil-surround counsel company-tern company-irony ag ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
