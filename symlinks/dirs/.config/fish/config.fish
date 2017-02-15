@@ -25,3 +25,14 @@ set -gx GOPATH $HOME/go
 function nuget
   mono ~/mybins/nuget.exe $argv
 end
+
+function tether1
+  sudo badvpn-tun2socks --tundev utun0 --netif-ipaddr 10.0.0.2 --netif-netmask 255.255.255.0 --socks-server-addr 172.20.10.1:3128
+end
+
+function tether2
+  sudo ipconfig set utun0 MANUAL 10.0.0.1 255.255.255.0
+  sudo route add 0.0.0.0/1 10.0.0.2 -ifp utun0
+  sudo route add 128.0.0.0/1 10.0.0.2 -ifp utun0
+  sudo route add 66.162.88.82 172.20.10.1
+end
