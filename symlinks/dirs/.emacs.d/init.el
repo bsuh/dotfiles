@@ -70,6 +70,7 @@
 (require 'evil)
 (evil-mode 1)
 (require 'evil-surround)
+(require 'dired)
 (global-evil-surround-mode t)
 (define-key evil-ex-map "b " 'helm-mini) ; instant switch buffer shortcut
 (define-key evil-ex-map "bd " 'ido-kill-buffer) ; instant kill buffer shortcut
