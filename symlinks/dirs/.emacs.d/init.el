@@ -128,14 +128,11 @@
 (setq js-indent-level 2)
 (setq js2-mode-show-parse-errors nil)
 (setq js2-mode-show-strict-warnings nil)
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-tern))
 (add-hook 'js-mode-hook
           (lambda ()
-            (js2-minor-mode)
-            (tern-mode)
-            (skewer-mode)
-            (flycheck-mode)))
+            (tide-setup)
+            (flycheck-mode)
+            (eldoc-mode)))
 
 ; https://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
 (defun my/use-eslint-from-node-modules ()
@@ -215,7 +212,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flx-ido helm-projectile helm alchemist yaml-mode elixir-mode zenburn-theme web-mode smex smart-mode-line skewer-mode rainbow-mode projectile org-plus-contrib omnisharp markdown-mode magit highlight-symbol golden-ratio go-mode fsharp-mode flycheck-irony evil-surround company-tern company-irony ag ace-jump-mode))))
+    (ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm helm-projectile highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smart-mode-line smex tide web-mode zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
