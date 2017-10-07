@@ -215,7 +215,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm helm-projectile highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smart-mode-line smex tide web-mode zenburn-theme))))
+    (protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm helm-projectile highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smart-mode-line smex tide web-mode zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
