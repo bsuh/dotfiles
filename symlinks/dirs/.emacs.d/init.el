@@ -154,7 +154,6 @@
             (skewer-css-mode)))
 
 ;; c#
-(setq omnisharp-server-executable-path "~/mybins/OmniSharpServer/OmniSharp.exe")
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-omnisharp))
 (add-hook 'csharp-mode-hook
