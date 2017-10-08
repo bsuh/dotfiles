@@ -5,7 +5,6 @@
         "./depot_tools.sh"
     ],
     "before-scripts": [
-        "./patch-emacs.sh",
         "./patch-formulas.sh"
     ],
     "casks": [
