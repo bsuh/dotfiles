@@ -1,0 +1,32 @@
+# Supfile
+---
+version: 0.5
+
+networks:
+  mac:
+    hosts:
+      - localhost
+
+commands:
+  install-homebrew:
+    run: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+  install-homebrew-packages:
+    brew bundle
+
+  install-npm-packages:
+    npm install -g npm-check-updates eslint
+
+  install-pip-packages:
+    pip install virtualenv pythonpy
+
+  install-go-packages:
+    go get -u github.com/pressly/sup/cmd/sup
+
+targets:
+  bootstrap:
+    - install-homebrew
+    - install-homebrew-packages
+    - install-npm-packages
+    - install-pip-packages
+    - install-go-packages
