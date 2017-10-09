@@ -83,6 +83,7 @@
       (helm-find-files arg))))
 (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
 (define-key evil-normal-state-map "'" 'ace-jump-mode)
+(add-hook 'git-commit-mode-hook 'evil-normal-state)
 
 ;; auto completion
 (setq company-dabbrev-downcase nil)
