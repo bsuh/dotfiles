@@ -12,16 +12,13 @@ commands:
     run: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
   install-homebrew-packages:
-    brew bundle
+    run: brew bundle
 
   install-npm-packages:
-    npm install -g npm-check-updates eslint
+    run: npm install -g npm-check-updates eslint
 
   install-pip-packages:
-    pip install virtualenv pythonpy
-
-  install-go-packages:
-    go get -u github.com/pressly/sup/cmd/sup
+    run: pip install virtualenv pythonpy
 
 targets:
   bootstrap:
@@ -29,4 +26,3 @@ targets:
     - install-homebrew-packages
     - install-npm-packages
     - install-pip-packages
-    - install-go-packages
