@@ -127,9 +127,9 @@ cask "teamviewer"
 cask "vagrant"
 cask "virtualbox"
 cask "vlc"
-cask "vmware-fusion"
 cask "wireshark"
 cask "caskroom/versions/java6"
+cask "caskroom/versions/vmware-fusion8"
 mas "DaisyDisk", id: 411643860
 mas "Tadam", id: 531349534
 mas "Xcode", id: 497799835
