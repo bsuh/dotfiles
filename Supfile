@@ -8,9 +8,6 @@ networks:
       - localhost
 
 commands:
-  install-homebrew:
-    run: /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
   install-homebrew-packages:
     run: brew bundle
 
@@ -28,7 +25,6 @@ commands:
 
 targets:
   bootstrap:
-    - install-homebrew
     - install-homebrew-packages
     - install-npm-packages
     - install-pip-packages
