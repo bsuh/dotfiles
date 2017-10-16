@@ -209,6 +209,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(git-commit-fill-column 72)
+ '(git-commit-summary-max-length 50)
  '(package-selected-packages
    (quote
     (org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm helm-projectile highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smart-mode-line smex tide web-mode zenburn-theme))))
