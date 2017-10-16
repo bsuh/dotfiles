@@ -75,7 +75,7 @@
 (define-key evil-ex-map "b " 'helm-mini) ; instant switch buffer shortcut
 (define-key evil-ex-map "bd " 'ido-kill-buffer) ; instant kill buffer shortcut
 (setenv "FZF_DEFAULT_COMMAND" "ag --hidden --ignore .git -g \"\"")
-(define-key evil-ex-map "e " 'fzf) ; better open file
+(define-key evil-ex-map "e " 'fzf-git) ; better open file
 (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
 (define-key evil-normal-state-map "'" 'ace-jump-mode)
 (add-hook 'git-commit-mode-hook 'evil-normal-state)
