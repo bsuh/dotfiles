@@ -214,7 +214,7 @@
  '(git-commit-summary-max-length 50)
  '(package-selected-packages
    (quote
-    (org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smart-mode-line smex tide web-mode zenburn-theme))))
+    (rg org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smart-mode-line smex tide web-mode zenburn-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
