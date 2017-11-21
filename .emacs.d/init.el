@@ -112,8 +112,8 @@
 (setq c-default-style "linux")
 
 ;; html
-(setq web-mode-code-indent-offset 4)
-(setq web-mode-css-indent-offset 4)
+(setq web-mode-code-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
 (setq web-mode-markup-indent-offset 2)
 (add-to-list 'auto-mode-alist '("\\.cshtml?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
@@ -127,8 +127,21 @@
 (add-hook 'js-mode-hook
           (lambda ()
             (tide-setup)
-            (flycheck-mode)
             (eldoc-mode)))
+
+;; jsx
+(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
+(add-to-list 'auto-mode-alist '("\\.jsx$" . web-mode))
+(eval-after-load 'flycheck
+  '(flycheck-add-mode 'javascript-eslint 'web-mode))
+(add-hook 'web-mode-hook
+          (lambda ()
+            (when (equal web-mode-content-type "jsx")
+              (tide-setup)
+              (eldoc-mode)
+              (flycheck-mode)
+              (flycheck-select-checker 'javascript-eslint)
+              )))
 
 ; https://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
 (defun my/use-eslint-from-node-modules ()
