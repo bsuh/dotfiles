@@ -1,9 +1,17 @@
-export PROMPT='%~ %# '
+# prompt
+export PS1='%{%F{red}%}%~%{%f%} %# '
+
+# color ls
 alias ls='gls --color=auto'
 
+# j
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-export PATH=~/bin:~/bin/depot_tools:~/go/bin:$PATH
+# option-right , option-left shortcut
+bindkey "^[^[[C" forward-word
+bindkey "^[^[[D" backward-word
+
+export PATH=~/bin:~/bin/depot_tools:~/go/bin:/usr/local/bin:$PATH
 #export KONSOLE_DBUS_SESSION=1
 export EDITOR=emacs
 export VISUAL=emacs
