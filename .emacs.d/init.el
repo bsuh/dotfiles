@@ -44,6 +44,31 @@
 ;; smex
 (global-set-key (kbd "M-x") 'smex)
 
+;; mac keybindings
+(defun mac-new-tab ()
+  (interactive)
+  (let ((current-frame (selected-frame))
+        (new-frame (make-frame)))
+    (progn
+      (mac-set-frame-tab-group-property
+       current-frame :frames
+       (append (mac-frame-tab-group-property current-frame :frames)
+               (list new-frame)))
+      (mac-set-frame-tab-group-property
+       nil :selected-frame new-frame))))
+
+(if (eq system-type 'darwin)
+    (progn
+      (global-set-key (kbd "M-}") 'mac-next-tab)
+      (global-set-key (kbd "M-{") 'mac-previous-tab)
+      (global-set-key (kbd "M-t") 'mac-new-tab)
+      (eval-after-load 'evil
+        '(global-set-key (kbd "M-w") 'evil-quit))
+      (eval-after-load 'org
+        '(progn
+           (define-key org-mode-map (kbd "M-}") nil)
+           (define-key org-mode-map (kbd "M-{") nil)))))
+
 ;; vim
 (setenv "FZF_DEFAULT_COMMAND" "ag --hidden --ignore .git -g \"\"")
 (eval-after-load 'evil
