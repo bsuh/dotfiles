@@ -75,6 +75,7 @@ brew "llvm"
 brew "log4cxx", args: ["c++11"]
 brew "lua"
 brew "luajit"
+brew "macosvpn"
 brew "makedepend"
 brew "mas"
 brew "mercurial"

@@ -26,6 +26,9 @@ commands:
         tar xf ~/Downloads/MacOSX10.11.sdk.tar.xz && \
         sudo mv MacOSX10.11.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 
+  set-up-vpn:
+    run: sudo macosvpn create -l "VPN (L2TP)" -e vpn.enors.com -u bsuh -s $(rclone cat secret:.vpnpreshared)
+
 targets:
   bootstrap:
     - switch-shell
@@ -33,3 +36,4 @@ targets:
     - install-npm-packages
     - install-pip-packages
     - install-macos10.11-sdk
+    - set-up-vpn
