@@ -63,7 +63,9 @@
       (global-set-key (kbd "M-{") 'mac-previous-tab)
       (global-set-key (kbd "M-t") 'mac-new-tab)
       (eval-after-load 'evil
-        '(global-set-key (kbd "M-w") 'evil-quit))
+        '(progn
+           (global-set-key (kbd "M-w") 'evil-quit)
+           (evil-set-initial-state 'magit-submodule-list-mode 'emacs)))
       (eval-after-load 'org
         '(progn
            (define-key org-mode-map (kbd "M-}") nil)
