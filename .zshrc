@@ -36,3 +36,5 @@ function vpn_routes {
   sudo route add 192.168.63.0/24 -iface ppp0
   sudo route add 66.162.88.83 -iface ppp0
 }
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
