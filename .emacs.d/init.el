@@ -79,7 +79,9 @@
      (define-key evil-ex-map "bd " 'ido-kill-buffer) ; instant kill buffer shortcut
      (define-key evil-ex-map "e " 'fzf-git) ; better open file
      (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
-     (define-key evil-normal-state-map "'" 'ace-jump-mode)))
+     (define-key evil-normal-state-map "'" 'ace-jump-mode)
+     (define-key evil-motion-state-map "\t" nil)
+     ))
 (add-hook 'git-commit-mode-hook 'evil-normal-state)
 
 ;; auto completion
