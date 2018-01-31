@@ -12,7 +12,7 @@ bindkey "^[^[[C" forward-word
 bindkey "^[^[[D" backward-word
 
 export PATH=~/bin:~/bin/depot_tools:~/go/bin:/usr/local/bin:$PATH
-#export KONSOLE_DBUS_SESSION=1
+export KONSOLE_DBUS_SESSION=1
 export EDITOR=emacs
 export VISUAL=emacs
 export GOPATH=~/go
