@@ -70,6 +70,10 @@
         '(progn
            (define-key org-mode-map (kbd "M-}") nil)
            (define-key org-mode-map (kbd "M-{") nil)))))
+(eval-after-load "nxml-mode"
+  '(progn
+     (define-key nxml-mode-map (kbd "M-}") nil)
+     (define-key nxml-mode-map (kbd "M-{") nil)))
 
 ;; vim
 (setenv "FZF_DEFAULT_COMMAND" "ag --hidden --ignore .git -g \"\"")
