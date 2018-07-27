@@ -207,7 +207,7 @@
  '(org-log-done (quote time))
  '(package-selected-packages
    (quote
-    (rg org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smex tide web-mode zenburn-theme)))
+    (dockerfile-mode groovy-mode erlang ibuffer-vc cmake-mode flycheck-flow rg org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smex tide web-mode zenburn-theme)))
  '(show-paren-delay 0)
  '(show-paren-mode t)
  '(tab-width 2)
