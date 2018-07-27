@@ -195,7 +195,6 @@
  '(global-company-mode t)
  '(global-evil-surround-mode t)
  '(global-flycheck-mode t)
- '(golden-ratio-mode t)
  '(ido-everywhere t)
  '(ido-mode (quote both) nil (ido))
  '(ido-use-faces nil)
@@ -208,7 +207,7 @@
  '(org-log-done (quote time))
  '(package-selected-packages
    (quote
-    (rg org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode golden-ratio helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smex tide web-mode zenburn-theme)))
+    (rg org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib projectile rainbow-mode smex tide web-mode zenburn-theme)))
  '(show-paren-delay 0)
  '(show-paren-mode t)
  '(tab-width 2)
