@@ -34,6 +34,7 @@ function vpn_routes {
   sudo route add 192.168.60.0/24 -iface ppp0
   sudo route add 192.168.62.0/24 -iface ppp0
   sudo route add 192.168.63.0/24 -iface ppp0
+  sudo route add 192.168.70.0/24 -iface ppp0
   sudo route add 66.162.88.83 -iface ppp0
 }
 
