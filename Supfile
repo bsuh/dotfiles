@@ -20,20 +20,9 @@ commands:
   install-pip-packages:
     run: pip install virtualenv pythonpy
 
-  install-macos10.11-sdk:
-    run: >
-      curl -L https://github.com/phracker/MacOSX-SDKs/releases/download/10.13/MacOSX10.11.sdk.tar.xz -o ~/Downloads/MacOSX10.11.sdk.tar.xz && \
-        tar xf ~/Downloads/MacOSX10.11.sdk.tar.xz && \
-        sudo mv MacOSX10.11.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
-
-  set-up-vpn:
-    run: sudo macosvpn create -l "VPN (L2TP)" -e vpn.enors.com -u bsuh -s $(rclone cat secret:.vpnpreshared)
-
 targets:
   bootstrap:
     - switch-shell
     - install-homebrew-packages
     - install-npm-packages
     - install-pip-packages
-    - install-macos10.11-sdk
-    - set-up-vpn
