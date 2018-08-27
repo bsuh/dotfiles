@@ -14,15 +14,7 @@ commands:
   install-homebrew-packages:
     run: brew bundle
 
-  install-npm-packages:
-    run: npm install -g npm-check-updates eslint
-
-  install-pip-packages:
-    run: pip install virtualenv pythonpy
-
 targets:
   bootstrap:
     - switch-shell
     - install-homebrew-packages
-    - install-npm-packages
-    - install-pip-packages
