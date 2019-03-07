@@ -47,18 +47,14 @@
 ;; mac keybindings
 (defun mac-new-tab ()
   (interactive)
-  (let ((current-frame (selected-frame))
-        (new-frame (make-frame)))
+  (let (new-frame (make-frame))
     (progn
-      (mac-set-frame-tab-group-property
-       current-frame :frames
-       (append (mac-frame-tab-group-property current-frame :frames)
-               (list new-frame)))
       (mac-set-frame-tab-group-property
        nil :selected-frame new-frame))))
 
 (if (eq system-type 'darwin)
     (progn
+      (setq mac-frame-tabbing t)
       (global-set-key (kbd "M-}") 'mac-next-tab)
       (global-set-key (kbd "M-{") 'mac-previous-tab)
       (global-set-key (kbd "M-t") 'mac-new-tab)
