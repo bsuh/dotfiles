@@ -21,6 +21,10 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (package-initialize)
+(unless (file-exists-p package-user-dir)
+  (progn
+    (package-refresh-contents)
+    (package-install-selected-packages)))
 
 ;; c++/c/objective-c completion
 (add-hook 'c++-mode-hook 'irony-mode)
