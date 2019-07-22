@@ -51,10 +51,7 @@
 ;; mac keybindings
 (defun mac-new-tab ()
   (interactive)
-  (let (new-frame (make-frame))
-    (progn
-      (mac-set-frame-tab-group-property
-       nil :selected-frame new-frame))))
+  (make-frame))
 
 (if (eq system-type 'darwin)
     (progn
