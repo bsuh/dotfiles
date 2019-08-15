@@ -157,6 +157,18 @@
 
 ;; magit
 (defalias 'magit-file-log 'magit-log-buffer-file)
+(eval-after-load 'magit-status
+  '(progn
+     (remove-hook 'magit-status-headers-hook 'magit-insert-tags-header)
+     (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-pushremote)
+     (remove-hook 'magit-status-sections-hook 'magit-insert-unpushed-to-upstream-or-recent)
+     (remove-hook 'magit-status-sections-hook 'magit-insert-unpulled-from-upstream)))
+(eval-after-load 'magit-refs
+  '(progn
+     (remove-hook 'magit-refs-sections-hook 'magit-insert-tags)
+     (remove-hook 'magit-refs-sections-hook 'magit-insert-remote-branches)))
+(eval-after-load 'magit-git
+  '(delete "refs/tags" magit-list-refs-namespaces))
 
 ;; org
 (eval-after-load 'org
