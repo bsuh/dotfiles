@@ -61,8 +61,7 @@
       (global-set-key (kbd "M-t") 'mac-new-tab)
       (eval-after-load 'evil
         '(progn
-           (global-set-key (kbd "M-w") 'evil-quit)
-           (evil-set-initial-state 'magit-submodule-list-mode 'emacs)))
+           (global-set-key (kbd "M-w") 'evil-quit)))
       (eval-after-load 'org
         '(progn
            (define-key org-mode-map (kbd "M-}") nil)
@@ -82,6 +81,7 @@
      (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
      (define-key evil-normal-state-map "'" 'ace-jump-mode)
      (define-key evil-motion-state-map "\t" nil)
+     (evil-set-initial-state 'magit-submodule-list-mode 'emacs)
      ))
 (add-hook 'git-commit-mode-hook 'evil-normal-state)
 
