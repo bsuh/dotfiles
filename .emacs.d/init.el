@@ -82,6 +82,7 @@
      (define-key evil-normal-state-map "'" 'ace-jump-mode)
      (define-key evil-motion-state-map "\t" nil)
      (evil-set-initial-state 'magit-submodule-list-mode 'emacs)
+     (evil-set-initial-state 'deft-mode 'emacs)
      ))
 (add-hook 'git-commit-mode-hook 'evil-normal-state)
 
