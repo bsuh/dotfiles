@@ -30,6 +30,7 @@
  '(global-company-mode t)
  '(global-evil-surround-mode t)
  '(global-flycheck-mode t)
+ '(helm-ff-keep-cached-candidates (quote nil))
  '(ido-everywhere t)
  '(ido-mode (quote both) nil (ido))
  '(ido-use-faces nil)
