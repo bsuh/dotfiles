@@ -82,46 +82,56 @@
             (hs-minor-mode t)
             ))
 
-;; smex
+;; extended command interface
 (global-set-key (kbd "M-x") 'smex)
+(eval-after-load 'evil
+  '(define-key evil-normal-state-map (kbd "SPC") 'smex))
 
-;; mac keybindings
+;; gui tabs
 (defun mac-new-tab ()
   (interactive)
   (make-frame))
-
 (if (eq system-type 'darwin)
     (progn
       (setq mac-frame-tabbing t)
       (global-set-key (kbd "M-}") 'mac-next-tab)
       (global-set-key (kbd "M-{") 'mac-previous-tab)
       (global-set-key (kbd "M-t") 'mac-new-tab)
-      (eval-after-load 'evil
-        '(progn
-           (global-set-key (kbd "M-w") 'evil-quit)))
+      (global-set-key (kbd "M-w") 'evil-quit)
       (eval-after-load 'org
         '(progn
            (define-key org-mode-map (kbd "M-}") nil)
-           (define-key org-mode-map (kbd "M-{") nil)))))
-(eval-after-load "nxml-mode"
-  '(progn
-     (define-key nxml-mode-map (kbd "M-}") nil)
-     (define-key nxml-mode-map (kbd "M-{") nil)))
+           (define-key org-mode-map (kbd "M-{") nil)))
+      (eval-after-load 'nxml-mode
+        '(progn
+           (define-key nxml-mode-map (kbd "M-}") nil)
+           (define-key nxml-mode-map (kbd "M-{") nil)))))
 
-;; vim
+;; fzf file opener
 (setenv "FZF_DEFAULT_COMMAND" "ag --hidden --ignore .git -g \"\"")
 (eval-after-load 'evil
+  '(define-key evil-ex-map "e " 'fzf-git))
+
+;; buffer switcher
+(eval-after-load 'evil
+  '(define-key evil-ex-map "b " 'helm-mini))
+
+;; buffer kill
+(eval-after-load 'evil
+  '(define-key evil-ex-map "bd " 'kill-buffer))
+
+;; ace jump
+(eval-after-load 'evil
+  '(define-key evil-normal-state-map "'" 'ace-jump-mode))
+
+;; evil mode enable/disable
+(eval-after-load 'evil
   '(progn
-     (define-key evil-ex-map "b " 'helm-mini) ; instant switch buffer shortcut
-     (define-key evil-ex-map "bd " 'kill-buffer) ; instant kill buffer shortcut
-     (define-key evil-ex-map "e " 'fzf-git) ; better open file
-     (define-key evil-normal-state-map (kbd "SPC") 'smex) ; quicker M-x access
-     (define-key evil-normal-state-map "'" 'ace-jump-mode)
      (define-key evil-motion-state-map "\t" nil)
      (evil-set-initial-state 'magit-submodule-list-mode 'emacs)
      (evil-set-initial-state 'deft-mode 'emacs)
+     (evil-set-initial-state 'git-commit-mode 'normal)
      ))
-(add-hook 'git-commit-mode-hook 'evil-normal-state)
 
 ;; auto completion
 (eval-after-load 'company
