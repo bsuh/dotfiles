@@ -77,11 +77,10 @@
 (require 'gcmh)
 (gcmh-mode 1)
 
-;; show trailing whitespace
 (add-hook 'prog-mode-hook
           (lambda ()
             (hs-minor-mode t)
-            (setq-local show-trailing-whitespace t)))
+            ))
 
 ;; smex
 (global-set-key (kbd "M-x") 'smex)

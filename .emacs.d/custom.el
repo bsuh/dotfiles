@@ -44,6 +44,7 @@
  '(select-enable-clipboard t)
  '(show-paren-delay 0)
  '(show-paren-mode t)
+ '(show-trailing-whitespace t)
  '(tab-width 2)
  '(tool-bar-mode nil)
  '(truncate-lines t)
