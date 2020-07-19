@@ -34,7 +34,6 @@
 (straight-use-package 'alchemist)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'company)
-(straight-use-package 'company-irony)
 (straight-use-package 'csharp-mode)
 (straight-use-package 'deft)
 (straight-use-package 'dockerfile-mode)
@@ -46,7 +45,6 @@
 (straight-use-package 'flycheck)
 (straight-use-package 'flycheck-credo)
 (straight-use-package 'flycheck-flow)
-(straight-use-package 'flycheck-irony)
 (straight-use-package 'fsharp-mode)
 (straight-use-package 'fzf)
 (straight-use-package 'gcmh)
@@ -54,7 +52,6 @@
 (straight-use-package 'groovy-mode)
 (straight-use-package 'helm)
 (straight-use-package 'highlight-symbol)
-(straight-use-package 'irony)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
 (straight-use-package 'omnisharp)
@@ -79,19 +76,6 @@
 ;; delay garbage collection during usage
 (require 'gcmh)
 (gcmh-mode 1)
-
-;; c++/c/objective-c completion
-(add-hook 'c++-mode-hook 'irony-mode)
-(add-hook 'c-mode-hook 'irony-mode)
-(add-hook 'objc-mode-hook 'irony-mode)
-
-(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
-
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-irony))
-
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
 
 ;; show trailing whitespace
 (add-hook 'prog-mode-hook
