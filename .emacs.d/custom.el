@@ -41,9 +41,6 @@
  '(org-agenda-files (quote ("~/org/todo.org")))
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done (quote time))
- '(package-selected-packages
-   (quote
-    (deft dockerfile-mode groovy-mode erlang cmake-mode flycheck-flow rg org-journal fzf protobuf-mode yaml-mode alchemist elixir-mode flycheck-credo ace-jump-mode ag company company-irony csharp-mode evil evil-surround flx-ido flycheck flycheck-irony fsharp-mode go-mode helm highlight-symbol irony magit markdown-mode omnisharp org-plus-contrib rainbow-mode smex tide web-mode zenburn-theme)))
  '(select-enable-clipboard t)
  '(show-paren-delay 0)
  '(show-paren-mode t)

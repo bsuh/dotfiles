@@ -14,17 +14,71 @@
                              (setq gc-cons-threshold gc-cons-threshold-backup)
                              (setq file-name-handler-alist file-name-handler-alist-backup)))
 
+;; straight package manager
+(setq straight-check-for-modifications '(find-when-checking))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
+
+(straight-use-package 'ace-jump-mode)
+(straight-use-package 'ag)
+(straight-use-package 'alchemist)
+(straight-use-package 'cmake-mode)
+(straight-use-package 'company)
+(straight-use-package 'company-irony)
+(straight-use-package 'csharp-mode)
+(straight-use-package 'deft)
+(straight-use-package 'dockerfile-mode)
+(straight-use-package 'elixir-mode)
+(straight-use-package 'erlang)
+(straight-use-package 'evil)
+(straight-use-package 'evil-surround)
+(straight-use-package 'flx-ido)
+(straight-use-package 'flycheck)
+(straight-use-package 'flycheck-credo)
+(straight-use-package 'flycheck-flow)
+(straight-use-package 'flycheck-irony)
+(straight-use-package 'fsharp-mode)
+(straight-use-package 'fzf)
+(straight-use-package 'gcmh)
+(straight-use-package 'go-mode)
+(straight-use-package 'groovy-mode)
+(straight-use-package 'helm)
+(straight-use-package 'highlight-symbol)
+(straight-use-package 'irony)
+(straight-use-package 'magit)
+(straight-use-package 'markdown-mode)
+(straight-use-package 'omnisharp)
+(straight-use-package 'org-journal)
+(straight-use-package 'org-plus-contrib)
+(straight-use-package 'protobuf-mode)
+(straight-use-package 'rainbow-mode)
+(straight-use-package 'rg)
+(straight-use-package 'smex)
+(straight-use-package 'tide)
+(straight-use-package 'web-mode)
+(straight-use-package 'yaml-mode)
+(straight-use-package 'zenburn-theme)
+
+;; for melpa package exploration
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/"))
-(package-initialize)
-(unless (file-exists-p package-user-dir)
-  (progn
-    (package-refresh-contents)
-    (package-install-selected-packages)))
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+;; delay garbage collection during usage
+(require 'gcmh)
+(gcmh-mode 1)
 
 ;; c++/c/objective-c completion
 (add-hook 'c++-mode-hook 'irony-mode)
