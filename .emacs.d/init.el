@@ -139,9 +139,6 @@
      (define-key company-active-map "\C-n" 'company-select-next)
      (define-key company-active-map "\C-p" 'company-select-previous)))
 
-;; parenthesis
-(add-hook 'prog-mode-hook 'show-paren-mode)
-
 ;; higlight current symbol
 (add-hook 'prog-mode-hook
           (lambda ()
