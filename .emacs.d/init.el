@@ -5,7 +5,7 @@
 
 ;;; Code:
 
-;; Replace some variables temporarily during startup for faster startup
+;; Minimize garbage collection during startup for faster startup time
 (defvar gc-cons-threshold-backup gc-cons-threshold)
 (defvar file-name-handler-alist-backup file-name-handler-alist)
 (setq gc-cons-threshold (* 100 1024 1024))
@@ -29,6 +29,7 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+;; packages
 (straight-use-package 'ace-jump-mode)
 (straight-use-package 'ag)
 (straight-use-package 'alchemist)
@@ -70,6 +71,7 @@
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
+;; customization
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
