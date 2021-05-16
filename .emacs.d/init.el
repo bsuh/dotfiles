@@ -31,41 +31,27 @@
 
 ;; packages
 (straight-use-package 'ace-jump-mode)
-(straight-use-package 'ag)
-(straight-use-package 'alchemist)
 (straight-use-package 'cmake-mode)
 (straight-use-package 'company)
-;(straight-use-package 'csharp-mode)
-(straight-use-package 'deft)
-(straight-use-package 'dockerfile-mode)
-(straight-use-package 'elixir-mode)
 (straight-use-package 'erlang)
 (straight-use-package 'evil)
 (straight-use-package 'evil-surround)
 (straight-use-package 'exec-path-from-shell)
 (straight-use-package 'flx-ido)
 (straight-use-package 'flycheck)
-(straight-use-package 'flycheck-credo)
-(straight-use-package 'flycheck-flow)
-(straight-use-package 'fsharp-mode)
 (straight-use-package 'fzf)
 (straight-use-package 'gcmh)
-(straight-use-package 'go-mode)
-(straight-use-package 'groovy-mode)
 (straight-use-package 'helm)
 (straight-use-package 'highlight-symbol)
 (straight-use-package 'magit)
 (straight-use-package 'markdown-mode)
-;(straight-use-package 'omnisharp)
 (straight-use-package 'org-journal)
 (straight-use-package 'org-plus-contrib)
 (straight-use-package 'protobuf-mode)
 (straight-use-package 'rainbow-mode)
 (straight-use-package 'rg)
 (straight-use-package 'smex)
-(straight-use-package 'tide)
 (straight-use-package 'web-mode)
-(straight-use-package 'yaml-mode)
 (straight-use-package 'zenburn-theme)
 
 
@@ -164,48 +150,11 @@
 (add-hook 'web-mode-hook
           (lambda ()
             (when (equal web-mode-content-type "jsx")
-              (tide-setup)
               (eldoc-mode)
-              (flycheck-mode)
-              (flycheck-select-checker 'javascript-eslint)
               )))
-(eval-after-load 'flycheck
-  '(flycheck-add-mode 'javascript-eslint 'web-mode))
-
-; https://emacs.stackexchange.com/questions/21205/flycheck-with-file-relative-eslint-executable
-(defun my/use-eslint-from-node-modules ()
-  (let* ((root (locate-dominating-file
-                (or (buffer-file-name) default-directory)
-                "node_modules"))
-         (eslint (and root
-                      (expand-file-name "node_modules/eslint/bin/eslint.js"
-                                        root))))
-    (when (and eslint (file-executable-p eslint))
-      (setq-local flycheck-javascript-eslint-executable eslint))))
-
-(add-hook 'flycheck-mode-hook #'my/use-eslint-from-node-modules)
 
 ;; css
 (add-hook 'css-mode-hook 'rainbow-mode)
-
-;; c#
-(eval-after-load 'company
-  '(add-to-list 'company-backends 'company-omnisharp))
-(add-hook 'csharp-mode-hook
-          (lambda ()
-            (setq-local c-basic-offset 4)
-            (c-set-style "c#")
-            (omnisharp-mode)))
-
-;; f#
-(add-hook 'fsharp-mode-hook
-          (lambda ()
-            (setq indent-line-function 'indent-relative)))
-
-;; go
-(add-hook 'go-mode-hook
-          (lambda ()
-            (setq-local indent-tabs-mode t)))
 
 ;; magit
 (defalias 'magit-file-log 'magit-log-buffer-file)
@@ -225,10 +174,6 @@
 ;; org
 (eval-after-load 'org
   '(add-to-list 'org-modules 'org-habit))
-
-; elixir
-(eval-after-load 'flycheck
-  '(flycheck-credo-setup))
 
 (provide 'init)
 ;;; init.el ends here
