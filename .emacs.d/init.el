@@ -42,6 +42,7 @@
 (straight-use-package 'erlang)
 (straight-use-package 'evil)
 (straight-use-package 'evil-surround)
+(straight-use-package 'exec-path-from-shell)
 (straight-use-package 'flx-ido)
 (straight-use-package 'flycheck)
 (straight-use-package 'flycheck-credo)
@@ -67,7 +68,11 @@
 (straight-use-package 'yaml-mode)
 (straight-use-package 'zenburn-theme)
 
-;; for melpa package exploration
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+; for melpa package exploration
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 
