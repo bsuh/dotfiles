@@ -119,6 +119,9 @@
 ;; css
 (add-hook 'css-mode-hook 'rainbow-mode)
 
+;; erlang
+(add-hook 'erlang-mode-hook #'lsp)
+
 ;; magit
 (defalias 'magit-file-log 'magit-log-buffer-file)
 (eval-after-load 'magit-status
