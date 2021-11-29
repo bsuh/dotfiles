@@ -75,6 +75,9 @@
             (hs-minor-mode t)
             ))
 
+;; lsp-mode
+(setq read-process-output-max (* 1024 1024)) ;; 1mb
+
 ;; extended command interface
 (global-set-key (kbd "M-x") 'smex)
 (eval-after-load 'evil
