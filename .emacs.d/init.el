@@ -14,53 +14,13 @@
                              (setq gc-cons-threshold gc-cons-threshold-backup)
                              (setq file-name-handler-alist file-name-handler-alist-backup)))
 
-;; straight package manager
-(setq straight-check-for-modifications '(find-when-checking))
-(defvar bootstrap-version)
-(let ((bootstrap-file
-       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
-      (bootstrap-version 5))
-  (unless (file-exists-p bootstrap-file)
-    (with-current-buffer
-        (url-retrieve-synchronously
-         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
-         'silent 'inhibit-cookies)
-      (goto-char (point-max))
-      (eval-print-last-sexp)))
-  (load bootstrap-file nil 'nomessage))
-
-;; packages
-(straight-use-package 'ace-jump-mode)
-(straight-use-package 'cmake-mode)
-(straight-use-package 'company)
-(straight-use-package 'erlang)
-(straight-use-package 'evil)
-(straight-use-package 'evil-surround)
-(straight-use-package 'exec-path-from-shell)
-(straight-use-package 'flx-ido)
-(straight-use-package 'flycheck)
-(straight-use-package 'fzf)
-(straight-use-package 'gcmh)
-(straight-use-package 'helm)
-(straight-use-package 'highlight-symbol)
-(straight-use-package 'magit)
-(straight-use-package 'markdown-mode)
-(straight-use-package 'org-journal)
-(straight-use-package 'org-plus-contrib)
-(straight-use-package 'protobuf-mode)
-(straight-use-package 'rainbow-mode)
-(straight-use-package 'rg)
-(straight-use-package 'smex)
-(straight-use-package 'web-mode)
-(straight-use-package 'zenburn-theme)
-
-
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
-
 ; for melpa package exploration
 (require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
+
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
 
 ;; customization
 (setq custom-file "~/.emacs.d/custom.el")

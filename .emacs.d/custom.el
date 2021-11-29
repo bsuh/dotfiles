@@ -37,6 +37,8 @@
  '(org-agenda-files '("~/org/todo.org"))
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done 'time)
+ '(package-selected-packages
+   '(zenburn-theme web-mode smex rg rainbow-mode protobuf-mode org-journal magit lsp-mode highlight-symbol helm gcmh fzf flycheck flx-ido exec-path-from-shell evil-surround erlang company cmake-mode ace-jump-mode))
  '(select-enable-clipboard t)
  '(show-paren-delay 0)
  '(show-paren-mode t)
