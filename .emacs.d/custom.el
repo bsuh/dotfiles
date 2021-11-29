@@ -18,8 +18,9 @@
  '(evil-want-C-u-scroll t)
  '(flx-ido-mode t)
  '(flycheck-erlang-include-path
-   '("/Users/bsuh/git/server/erl/" "/Users/bsuh/git/server/erl/_build/default/lib/" "../include/"))
- '(flycheck-erlang-library-path '("/Users/bsuh/git/server/erl/_build/test/lib/wa/ebin/"))
+   '("/Users/bsuh/git/server/erl/" "/Users/bsuh/git/server/erl/_build/default/lib/" "../include/" "/Users/bsuh/git/server/erl/util/"))
+ '(flycheck-erlang-library-path
+   '("/Users/bsuh/git/server/erl/_build/default/lib/proper/ebin/" "/Users/bsuh/git/server/erl/_build/test/lib/wa/ebin/"))
  '(fzf/args "-x --margin 1,0 --print-query")
  '(git-commit-fill-column 72)
  '(git-commit-summary-max-length 50)
