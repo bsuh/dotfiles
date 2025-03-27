@@ -120,5 +120,15 @@
 (eval-after-load 'org
   '(add-to-list 'org-modules 'org-habit))
 
+;; lsp-mode
+(eval-after-load 'lsp-mode
+  (progn
+    (require 'lsp-sourcekit)
+    (setq lsp-sourcekit-executable
+          "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/sourcekit-lsp")))
+
+;; swift
+(add-hook 'swift-mode-hook #'lsp)
+
 (provide 'init)
 ;;; init.el ends here

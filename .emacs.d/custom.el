@@ -36,7 +36,7 @@
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done 'time)
  '(package-selected-packages
- '(rg org-journal fzf ace-jump-mode company evil evil-surround flx-ido flycheck helm highlight-symbol magit markdown-mode org-plus-contrib smex zenburn-theme))
+   '(lsp-ui lsp-sourcekit swift-mode lsp-mode rg org-journal fzf ace-jump-mode company evil evil-surround flx-ido flycheck helm highlight-symbol magit markdown-mode org-plus-contrib smex zenburn-theme))
  '(show-paren-delay 0)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)
