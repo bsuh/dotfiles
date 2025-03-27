@@ -12,8 +12,6 @@
  '(custom-enabled-themes '(zenburn))
  '(custom-safe-themes
    '("09b833239444ac3230f591e35e3c28a4d78f1556b107bafe0eb32b5977204d93" "0c9f63c9d90d0d135935392873cd016cc1767638de92841a5b277481f1ec1f4a" "cdb4ffdecc682978da78700a461cdc77456c3a6df1c1803ae2dd55c59fa703e3" "c82d24bfba431e8104219bfd8e90d47f1ad6b80a504a7900cbee002a8f04392f" "54f2d1fcc9bcadedd50398697618f7c34aceb9966a6cbaa99829eb64c0c1f3ca" "d057f0430ba54f813a5d60c1d18f28cf97d271fd35a36be478e20924ea9451bd" default))
- '(deft-directory "/Users/bsuh/org/")
- '(deft-extensions '("org" "txt" "text" "md" "markdown"))
  '(evil-mode t)
  '(evil-want-C-u-scroll t)
  '(flx-ido-mode t)
@@ -27,7 +25,6 @@
  '(global-company-mode t)
  '(global-evil-surround-mode t)
  '(global-flycheck-mode t)
- '(helm-ff-keep-cached-candidates 'nil)
  '(ido-everywhere t)
  '(ido-mode 'both nil (ido))
  '(ido-use-faces nil)
@@ -39,8 +36,7 @@
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done 'time)
  '(package-selected-packages
-   '(zenburn-theme web-mode smex rg rainbow-mode protobuf-mode org-journal magit lsp-mode highlight-symbol helm gcmh fzf flycheck flx-ido exec-path-from-shell evil-surround erlang company cmake-mode ace-jump-mode))
- '(select-enable-clipboard t)
+ '(rg org-journal fzf ace-jump-mode company evil evil-surround flx-ido flycheck helm highlight-symbol magit markdown-mode org-plus-contrib smex zenburn-theme))
  '(show-paren-delay 0)
  '(show-paren-mode t)
  '(show-trailing-whitespace t)

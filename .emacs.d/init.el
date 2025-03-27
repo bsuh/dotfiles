@@ -101,27 +101,6 @@
             (highlight-symbol-mode)
             (highlight-symbol-nav-mode)))
 
-;; html
-(add-to-list 'auto-mode-alist '("\\.cshtml?\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(eval-after-load 'flycheck
-  '(flycheck-add-mode 'html-tidy 'web-mode))
-
-;; javascript && jsx
-(setq web-mode-content-types-alist '(("jsx" . "\\.js[x]?\\'")))
-(add-to-list 'auto-mode-alist '("\\.js[x]?$" . web-mode))
-(add-hook 'web-mode-hook
-          (lambda ()
-            (when (equal web-mode-content-type "jsx")
-              (eldoc-mode)
-              )))
-
-;; css
-(add-hook 'css-mode-hook 'rainbow-mode)
-
-;; erlang
-(add-hook 'erlang-mode-hook #'lsp)
-
 ;; magit
 (defalias 'magit-file-log 'magit-log-buffer-file)
 (eval-after-load 'magit-status
