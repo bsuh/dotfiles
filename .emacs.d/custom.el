@@ -32,7 +32,8 @@
  '(js-indent-level 2)
  '(markdown-command "grip --export -")
  '(menu-bar-mode nil)
- '(org-agenda-files '("~/org/todo.org"))
+ '(org-agenda-files '("~/todo.org"))
+ '(org-clock-sound "~/ding.wav")
  '(org-habit-show-habits-only-for-today nil)
  '(org-log-done 'time)
  '(package-selected-packages
