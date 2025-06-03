@@ -39,9 +39,8 @@
 (setq read-process-output-max (* 1024 1024)) ;; 1mb
 
 ;; extended command interface
-(global-set-key (kbd "M-x") 'smex)
 (eval-after-load 'evil
-  '(define-key evil-normal-state-map (kbd "SPC") 'smex))
+  '(define-key evil-normal-state-map (kbd "SPC") 'execute-extended-command))
 
 ;; gui tabs
 (defun mac-new-tab ()
@@ -85,8 +84,8 @@
   '(progn
      (define-key evil-motion-state-map "\t" nil)
      (evil-set-initial-state 'magit-submodule-list-mode 'emacs)
-     (evil-set-initial-state 'deft-mode 'emacs)
      (evil-set-initial-state 'git-commit-mode 'normal)
+     (define-key evil-motion-state-map "\t" nil)
      ))
 
 ;; auto completion
